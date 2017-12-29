@@ -1,0 +1,138 @@
+@charset "utf-8";
+// ===================================================================
+//  File:	helpers/_utility.scss
+//  Date:	2016-05-02(UTC+9)
+//  Note:	
+// ===================================================================
+// -------------------------------------------------
+//		BEMクラス名汎用
+// -------------------------------------------------
+// modifier: ハイフン
+@mixin modifier($name) {
+	@at-root {
+		#{&}--#{$name} {
+			@content;
+		}
+	}
+}
+// element: アンダースコア
+@mixin element($name) {
+	@at-root {
+		#{&}__#{"" + $name} {
+			@content;
+		}
+	}
+}
+
+
+// -------------------------------------------------
+//		テキストリンク汎用
+// -------------------------------------------------
+a {
+	@include transition(all .3s ease);
+	&:link {
+		text-decoration: none;
+		color: $base_link_color;
+	}
+	&:visited {
+		text-decoration: none;
+		color: $base_visited_color;
+	}
+	&:hover {
+		text-decoration: none;
+		color: $base_hover_color;
+	}
+	&:active {
+		text-decoration: none;
+		color: $base_active_color;
+	}
+}
+
+
+// -------------------------------------------------
+//		フォントをスムーズに
+// -------------------------------------------------
+@mixin smooth {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+// -------------------------------------------------
+//		文字揃え
+// -------------------------------------------------
+// text-align: left;
+@mixin alignL {
+  text-align: left;
+}
+// text-align: center;
+@mixin alignC {
+  text-align: center;
+}
+// text-align: right;
+@mixin alignR {
+  text-align: right;
+}
+
+
+// -------------------------------------------------
+//		マージンで中央揃え
+// -------------------------------------------------
+@mixin centering {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
+// -------------------------------------------------
+//		英文フォント
+// -------------------------------------------------
+@mixin webfont_en {
+	@include in(en) {
+		font-family: $webfont_en;
+	}
+}
+
+
+// -------------------------------------------------
+// 	image float
+// -------------------------------------------------
+@mixin imgL {
+	float: left;
+	margin-bottom: $base_padding;
+	margin-right: $base_padding;
+}
+
+@mixin imgR {
+	float: right;
+	margin-bottom: $base_padding;
+	margin-left: $base_padding;
+}
+
+
+// -------------------------------------------------
+// 	画像置換用text-indent
+// -------------------------------------------------
+@mixin text-indent {
+	display: block;
+	text-indent: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+
+// -------------------------------------------------
+// 	table
+// -------------------------------------------------
+@mixin base_table {
+	width: 100%;
+	th, td {
+		box-sizing: border-box;
+		padding: .8em 1em;
+		vertical-align: top;
+	}
+	th {
+		text-align: left;
+		font-weight: normal;
+	}
+}

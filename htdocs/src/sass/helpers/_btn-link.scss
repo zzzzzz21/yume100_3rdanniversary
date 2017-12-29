@@ -1,0 +1,171 @@
+@charset "UTF-8";
+// ===================================================================
+//  File:	helpers/_btn-link.scss
+//  Date:	2017-04-10(UTC+9)
+//  Note:	link、btn用mixin
+// ===================================================================
+
+
+
+
+// -------------------------------------------------------------------
+// 	btn
+//		@include btn;
+// -------------------------------------------------------------------
+@mixin btn {
+	position: relative;
+	box-sizing: border-box;
+	display: inline-block;
+	padding: .4em 2em;
+	border: 1px solid $base_btn_color;
+	border-radius: $base-radius*16;
+	//background: $base_white_color;
+	@include fontsize(16);
+	text-align: center;
+	@include transition(all linear .3s);
+	color: $base_btn_color;
+	//	[media queries SP]
+	// ----------------------------------------
+	@include media(sp) {
+		width: 100%;
+	}
+	&:after {
+		position: absolute;
+		top: 32%;
+		right: 16px;
+		width: 10px;
+		height: 10px;
+		content: '';
+		border-top: 1px solid $base_btn_color;
+		border-right: 1px solid $base_btn_color;
+		vertical-align: middle;
+		transform: rotate(45deg);
+	}
+	&:link {
+		color: $base_btn_color;
+		text-decoration: none;
+	}
+	&:visited {
+		color: $base_btn_color;
+		text-decoration: none;
+	}
+	&:hover {
+		text-decoration: none;
+		background: $base_btn_color;
+		color: $base_white_color;
+		&:after {
+			border-color: $base_white_color;
+			@include transition(all .3s linear .1s);
+			right: 12px;
+		}
+	}
+}
+
+@mixin btn-next {
+	@include btn;
+}
+
+@mixin btn-up {
+	position: relative;
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	padding: 1em;
+	border: 1px solid $base_border_color;
+	border-radius: $base-radius;
+	@include fontsize(18);
+	text-align: center;
+	color: $base_link_color;
+	@include transition(all linear .3s);
+	&:after {
+		position: absolute;
+		right: 21px;
+		width: 12px;
+		height: 12px;
+		content: '';
+		border-top: 1px solid $base_link_color;
+		border-right: 1px solid $base_link_color;
+		vertical-align: middle;
+		transform: rotate(-45deg) translateY(100%);
+	}
+	&:hover {
+		text-decoration: none;
+		background: $base_link_color;
+		border-color: $base_link_color;
+		color: $base_white_color;
+		&:after {
+			border-top-color: $base_white_color;
+			border-right-color: $base_white_color;
+			@include transition(all .3s linear .1s);
+			right: 12px;
+		}
+	}
+	&:hover:after {
+		top: 0;
+		right: 21px;
+	}
+}
+
+@mixin btn-back {
+	@include btn;
+	&:after {
+		left: 24px;
+		transform: rotate(-180deg);
+	}
+	&:hover:after {
+	}
+}
+
+@mixin btn-target {
+	@include btn;
+	&:after {
+		width: 16px;
+		height: 16px;
+		content: url('../img/ico_new-window.png');
+		transform: rotate(0deg);
+		border: none;
+	}
+}
+
+// -------------------------------------------------------------------
+// 	link
+//		@include link;
+// -------------------------------------------------------------------
+@mixin link {
+	position: relative;
+	padding-left: 2em;
+	@include transition (all ease .3s);
+	&:before {
+		box-sizing: border-box;
+		display: inline-block;
+		position: absolute;
+		top: 8%;
+		left: 0;
+		width: 12px;
+		height: 12px;
+		text-align: center;
+		line-height: 1.3;
+		@include transition (all ease .3s);
+	}
+	&:hover:before {
+		left: .2em;
+		border-color: $base_hover_color;
+	}
+}
+
+@mixin link-arrow {
+	@include link;
+	&:before {
+		top: 8%;
+		left: 0;
+		display: inline-block;
+		margin-right: .6em;
+		content: '';
+		border-top: 2px solid $base_link_color;
+		border-right: 2px solid $base_link_color;
+		vertical-align: middle;
+		transform: rotate(45deg);
+		-webkit-transform: rotate(45deg);
+	}
+}
+

@@ -1,0 +1,929 @@
+@charset "UTF-8";
+
+// -------------------------------------------------------------------
+//  animation.scss
+//  Date: 2015-03-05(+09:00)
+//  Author: Kentaro Otsuka
+//  Reference: http://daneden.github.io/animate.css/, https://github.com/jackilyn/animate.scss
+// -------------------------------------------------------------------
+
+// Base
+// -------------------------------------------------------------------
+@mixin setAnimation($name: fadeIn, $duration: 1s, $delay: 0s, $easing: $ease-in-quad, $count: infinite, $mode: none) {
+  @include animation-timing-function($easing);
+  @include animation-duration($duration);
+  @include animation-iteration-count($count);
+  @include animation-delay($delay);
+  @include animation-name($name);
+  @include animation-fill-mode($mode);
+}
+
+@mixin fadeIn($type: 0) {
+  @if $type == 0 {
+    opacity: 0;
+  } @else {
+    opacity: 1;
+  }
+}
+
+@mixin fadeOut($type: 0) {
+  @if $type == 0 {
+    opacity: 1;
+  } @else {
+    opacity: 0;
+  }
+}
+
+// Mixin
+// -------------------------------------------------------------------
+@if $IS_BASE_ANIMATION == true {
+  //-------------------------------------------------- move
+  @include keyframes(topIn) {
+    0% {
+      @include transform(translateY(0));
+    }
+    100% {
+      @include transform(translateY(100%));
+    }
+  }
+
+  @include keyframes(bottomIn) {
+    0% {
+      @include transform(translateY(100%));
+    }
+    100% {
+      @include transform(translateY(0%));
+    }
+  }
+
+  @include keyframes(leftIn) {
+    0% {
+      @include transform(translateX(100%));
+    }
+    100% {
+      @include transform(translateX(0%));
+    }
+  }
+
+  @include keyframes(rightIn) {
+    0% {
+      @include transform(translateX(0%));
+    }
+    100% {
+      @include transform(translateX(100%));
+    }
+  }
+
+  @include keyframes(moveTopBottom) {
+    0% {
+      top: 0%;
+    }
+    100% {
+      top: 100%;
+    }
+  }
+
+  @include keyframes(moveBottomTop) {
+    0% {
+      bottom: 0%;
+    }
+    100% {
+      bottom: 100%;
+    }
+  }
+
+  @include keyframes(moveLeftRight) {
+    0% {
+      left: -50%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  @include keyframes(moveRightLeft) {
+    0% {
+      right: -50%;
+    }
+    100% {
+      right: 150%;
+    }
+  }
+
+  //-------------------------------------------------- Rubber Band
+  @include keyframes(rubberBand) {
+    0% {
+      transform: scale3d(1, 1, 1);
+    }
+    30% {
+      transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+      transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+      transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+      transform: scale3d(.95, 1.05, 1);
+    }
+    75% {
+      transform: scale3d(1.05, .95, 1);
+    }
+    100% {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+
+  //-------------------------------------------------- Bounce
+  $BOUNCE_X: 3000px;
+  $BOUNCE_Y: 50px;
+
+  @include keyframes(bounce) {
+    0%, 20%, 50%, 80%, 100% {
+      @include transform(translateY(0));
+    }
+    40% {
+      @include transform(translateY(-30px));
+    }
+    60% {
+      @include transform(translateY(-15px));
+    }
+  }
+
+  @include keyframes(bounceIn) {
+    0% {
+      @include transform(scale3d(.3, .3, .3));
+      opacity: .01;
+    }
+    20% {
+      @include transform(scale3d(1.1, 1.1, 1.1));
+      opacity: .01;
+    }
+    40% {
+      @include transform(scale3d(.9, .9, .9));
+      opacity: .01;
+    }
+    60% {
+      @include transform(scale3d(1.03, 1.03, 1.03));
+      opacity: 1;
+    }
+    80% {
+      @include transform(scale3d(.97, .97, .97));
+      opacity: 1;
+    }
+    100% {
+      @include transform(scale3d(1, 1, 1));
+      opacity: .01;
+    }
+  }
+
+  @include keyframes(bounceInUp) {
+    0% {
+      @include transform(translateY($BOUNCE_Y));
+      opacity: .01;
+    }
+    60% {
+      @include transform(translateY(-20px));
+      opacity: .01;
+    }
+    75% {
+      @include transform(translateY(10px));
+      opacity: .01;
+    }
+    90% {
+      @include transform(translateY(-5px));
+      opacity: 1;
+    }
+    100% {
+      @include transform(translateY(0));
+      opacity: 1;
+    }
+  }
+
+  @include keyframes(bounceInDown) {
+    0% {
+      @include transform(translate3d(0, -($BOUNCE_Y), 0));
+      opacity: .01;
+    }
+    60% {
+      @include transform(translate3d(0, 20px, 0));
+      opacity: .01;
+    }
+    75% {
+      @include transform(translate3d(0, -10px, 0));
+      opacity: .01;
+    }
+    90% {
+      @include transform(translate3d(0, 5px, 0));
+      opacity: 1;
+    }
+    100% {
+      @include transform(translate3d(0, 0, 0));
+      opacity: 1;
+    }
+  }
+
+  @include keyframes(bounceInLeft) {
+    0% {
+      @include transform(translate3d(-($BOUNCE_X), 0px, 0));
+      opacity: .01;
+    }
+    60% {
+      @include transform(translate3d(20px, 0, 0));
+      opacity: .01;
+    }
+    75% {
+      @include transform(translate3d(-10px, 0, 0));
+      opacity: .01;
+    }
+    90% {
+      @include transform(translate3d(5px, 0, 0));
+      opacity: 1;
+    }
+    100% {
+      @include transform(translate3d(0, 0, 0));
+      opacity: 1;
+    }
+  }
+
+  @include keyframes(bounceInRight) {
+    0% {
+      @include transform(translate3d($BOUNCE_X, 0px, 0));
+      opacity: .01;
+    }
+    60% {
+      @include transform(translate3d(-20px, 0, 0));
+      opacity: .01;
+    }
+    75% {
+      @include transform(translate3d(10px, 0, 0));
+      opacity: 1;
+    }
+    90% {
+      @include transform(translate3d(-5px, 0, 0));
+      opacity: 1;
+    }
+    100% {
+      @include transform(translate3d(0, 0, 0));
+      opacity: 1;
+    }
+  }
+
+  @include keyframes(bounceOut) {
+    0% {
+      @include transform(scale3d(1, 1, 1));
+      opacity: 1;
+    }
+    20% {
+      @include transform(scale3d(.97, .97, .97));
+      opacity: 1;
+    }
+    40% {
+      @include transform(scale3d(1.03, 1.03, 1.03));
+      opacity: 1;
+    }
+    60% {
+      @include transform(scale3d(.9, .9, .9));
+      opacity: .01;
+    }
+    80% {
+      @include transform(scale3d(1.1, 1.1, 1.1));
+      opacity: .01;
+    }
+    100% {
+      @include transform(scale3d(.3, .3, .3));
+      display: none;
+      opacity: .01;
+    }
+  }
+
+  @include keyframes(bounceOutUp) {
+    0% {
+      @include transform(translate3d(0, 0, 0));
+      opacity: 1;
+    }
+    60% {
+      @include transform(translate3d(0, -5px, 0));
+      opacity: 1;
+    }
+    75% {
+      @include transform(translate3d(0, 10px, 0));
+      opacity: 1;
+    }
+    90% {
+      @include transform(translate3d(0, -20px, 0));
+      opacity: .01;
+    }
+    100% {
+      @include transform(translate3d(0, $BOUNCE_Y, 0));
+      opacity: .01;
+    }
+  }
+
+  @include keyframes(bounceOutDown) {
+    0% {
+      @include transform(translate3d(0, 0, 0));
+      opacity: 1;
+    }
+    60% {
+      @include transform(translate3d(0, 5px, 0));
+      opacity: 1;
+    }
+    75% {
+      @include transform(translate3d(0, -10px, 0));
+      opacity: 1;
+    }
+    90% {
+      @include transform(translate3d(0, 20px, 0));
+      opacity: .01;
+    }
+    100% {
+      @include transform(translate3d(0, -($BOUNCE_Y), 0));
+      opacity: .01;
+    }
+  }
+
+  @include keyframes(bounceOutLeft) {
+    0% {
+      @include transform(translate3d(0, 0, 0));
+      opacity: 1;
+    }
+    60% {
+      @include transform(translate3d(5px, 0, 0));
+      opacity: 1;
+    }
+    75% {
+      @include transform(translate3d(-10px, 0, 0));
+      opacity: 1;
+    }
+    90% {
+      @include transform(translate3d(20px, 0, 0));
+      opacity: .01;
+    }
+    100% {
+      @include transform(translate3d(-($BOUNCE_X), 0px, 0));
+      opacity: .01;
+    }
+
+  }
+
+  @include keyframes(bounceOutRight) {
+    0% {
+      @include transform(translate3d(0, 0, 0));
+      opacity: 1;
+    }
+    60% {
+      @include transform(translate3d(-5px, 0, 0));
+      opacity: 1;
+    }
+    75% {
+      @include transform(translate3d(10px, 0, 0));
+      opacity: 1;
+    }
+    90% {
+      @include transform(translate3d(-20px, 0, 0));
+      opacity: .01;
+    }
+    100% {
+      @include transform(translate3d($BOUNCE_X, 0px, 0));
+      opacity: .01;
+    }
+  }
+
+  //-------------------------------------------------- Fade
+  @include keyframes(fadeIn) {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+    1% {
+      display: block;
+      opacity: 0;
+    }
+    100% {
+      display: block;
+      opacity: 1;
+    }
+  }
+
+  @include keyframes(fadeInUp) {
+    0% {
+      @include transform(translate3d(0, 100%, 0));
+      @include fadeIn(0);
+    }
+    100% {
+      @include transform(translate3d(0, 0, 0));
+      @include fadeIn(1);
+    }
+  }
+
+  @include keyframes(fadeInDown) {
+    0% {
+      @include transform(translate3d(0, 100%, 0));
+      @include fadeIn(0);
+    }
+    100% {
+      @include transform(translate3d(0, 0, 0));
+      @include fadeIn(1);
+    }
+  }
+
+  @include keyframes(fadeInLeft) {
+    0% {
+      @include transform(translate3d(-100%, 0, 0));
+      @include fadeIn(0);
+    }
+    100% {
+      @include transform(translate3d(0, 0, 0));
+      @include fadeIn(1);
+    }
+  }
+
+  @include keyframes(fadeInRight) {
+    0% {
+      @include transform(translate3d(100%, 0, 0));
+      @include fadeIn(0);
+    }
+    100% {
+      @include transform(translate3d(0, 0, 0));
+      @include fadeIn(1);
+    }
+  }
+
+  @include keyframes(fadeOut) {
+    0% {
+      display: block;
+      opacity: 1;
+    }
+    99% {
+      display: block;
+      opacity: .01;
+    }
+    100% {
+      display: none;
+      opacity: 0;
+    }
+  }
+
+  @include keyframes(fadeOutUp) {
+    100% {
+      @include transform(translate3d(0, 100%, 0));
+      @include fadeOut(0);
+    }
+    0% {
+      @include transform(translate3d(0, 0, 0));
+      @include fadeOut(1);
+    }
+  }
+
+  @include keyframes(fadeOutDown) {
+    100% {
+      @include transform(translate3d(0, 100%, 0));
+      @include fadeOut(0);
+    }
+    0% {
+      @include transform(translate3d(0, 0, 0));
+      @include fadeOut(1);
+    }
+  }
+
+  @include keyframes(fadeOutLeft) {
+    100% {
+      @include transform(translate3d(-100%, 0, 0));
+      @include fadeOut(0);
+    }
+    0% {
+      @include transform(translate3d(0, 0, 0));
+      @include fadeOut(1);
+    }
+  }
+
+  @include keyframes(fadeOutRight) {
+    100% {
+      @include transform(translate3d(100%, 0, 0));
+      @include fadeOut(0);
+    }
+    0% {
+      @include transform(translate3d(0, 0, 0));
+      @include fadeOut(1);
+    }
+  }
+
+  //-------------------------------------------------- Swing
+  @include keyframes(swing) {
+    20% {
+      @include transform(rotate3d(0, 0, 1, 4deg));
+    }
+    40% {
+      @include transform(rotate3d(0, 0, 1, -2deg));
+    }
+    60% {
+      @include transform(rotate3d(0, 0, 1, 2deg));
+    }
+    80% {
+      @include transform(rotate3d(0, 0, 1, -1deg));
+    }
+    100% {
+      @include transform(rotate3d(0, 0, 1, 0deg));
+    }
+  }
+
+  @include keyframes(wobble) {
+    0% {
+      @include transform(translateX(0%));
+    }
+    15% {
+      @include transform(translateX(-25%) rotate3d(0, 0, 1, -5deg));
+    }
+    30% {
+      @include transform(translateX(20%) rotate3d(0, 0, 1, 3deg));
+    }
+    45% {
+      @include transform(translateX(-15%) rotate3d(0, 0, 1, -3deg));
+    }
+    60% {
+      @include transform(translateX(10%) rotate3d(0, 0, 1, 2deg));
+    }
+    75% {
+      @include transform(translateX(-5%) rotate3d(0, 0, 1, -1deg));
+    }
+    100% {
+      @include transform(translateX(0%));
+    }
+  }
+
+  //-------------------------------------------------- Shake
+  @include keyframes(shake) {
+    0%, 100% {
+      @include transform(translateX(0px));
+    }
+    10%, 30%, 50%, 70%, 90% {
+      @include transform(translateX(-10px));
+    }
+    20%, 40%, 60%, 80% {
+      @include transform(translateX(10px));
+    }
+  }
+
+  //-------------------------------------------------- flip
+  @include keyframes(flip) {
+    0% {
+      @include transform(perspective(400px) translate3d(0, 0, 0) rotate3d(0, 1, 0, -360deg));
+      @include animation-timing-function($ease-out-quad);
+    }
+    40% {
+      @include transform(perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg));
+      @include animation-timing-function($ease-out-quad);
+    }
+    50% {
+      @include transform(perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg));
+      @include animation-timing-function($ease-in-quad);
+    }
+    80% {
+      @include transform(perspective(400px) translate3d(0, 0, 0) scale3d(.95, .95, .95));
+      @include animation-timing-function($ease-in-quad);
+    }
+    100% {
+      @include transform(perspective(400px) translate3d(0, 0, 0) scale3d(1, 1, 1));
+      @include animation-timing-function($ease-in-quad);
+    }
+  }
+
+  @include keyframes(flipInX) {
+    0% {
+      @include transform(perspective(400px) rotate3d(1, 0, 0, 90deg));
+      @include animation-timing-function($ease-in-quad);
+      opacity: .01;
+    }
+    40% {
+      @include transform(perspective(400px) rotate3d(1, 0, 0, -20deg));
+      @include animation-timing-function($ease-in-quad);
+      opacity: .01;
+    }
+    60% {
+      @include transform(perspective(400px) rotate3d(1, 0, 0, 10deg));
+      opacity: 1;
+    }
+    80% {
+      @include transform(perspective(400px) rotate3d(1, 0, 0, -5deg));
+      opacity: 1;
+    }
+    100% {
+      @include transform(perspective(400px) rotate3d(1, 0, 0, 0));
+      opacity: 1;
+    }
+  }
+
+  @include keyframes(flipInY) {
+    0% {
+      @include transform(perspective(400px) rotate3d(0, 1, 0, 90deg));
+      @include animation-timing-function($ease-in-quad);
+      opacity: .01;
+    }
+    40% {
+      @include transform(perspective(400px) rotate3d(0, 1, 0, -20deg));
+      @include animation-timing-function($ease-in-quad);
+      opacity: .01;
+    }
+    60% {
+      @include transform(perspective(400px) rotate3d(0, 1, 0, 10deg));
+      opacity: 1;
+    }
+    80% {
+      @include transform(perspective(400px) rotate3d(0, 1, 0, -5deg));
+      opacity: 1;
+    }
+    100% {
+      @include transform(perspective(400px) rotate3d(0, 1, 0, 0));
+    }
+  }
+
+  @include keyframes(flipOutX) {
+    0% {
+      @include transform(perspective(400px));
+    }
+    30% {
+      @include transform(perspective(400px) rotate3d(1, 0, 0, -20deg));
+      opacity: 1;
+    }
+    100% {
+      @include transform(perspective(400px) rotate3d(1, 0, 0, 90deg));
+      opacity: .01;
+    }
+  }
+
+  @include keyframes(flipOutY) {
+    0% {
+      @include transform(perspective(400px));
+    }
+    30% {
+      @include transform(perspective(400px) rotate3d(0, 1, 0, -15deg));
+      opacity: 1;
+    }
+    100% {
+      @include transform(perspective(400px) rotate3d(0, 1, 0, 90deg));
+      opacity: .01;
+    }
+  }
+
+  //-------------------------------------------------- Scale
+  @include keyframes(scaleMax) {
+    0% {
+      @include transform(scale(0));
+    }
+    100% {
+      @include transform(scale(1));
+    }
+  }
+
+  @include keyframes(scaleMin) {
+    0% {
+      @include transform(scale(1));
+    }
+    100% {
+      @include transform(scale(0));
+    }
+  }
+
+  @include keyframes(scaleMaxX) {
+    0% {
+      @include transform(scaleX(0));
+    }
+    100% {
+      @include transform(scaleX(1));
+    }
+  }
+
+  @include keyframes(scaleMinX) {
+    0% {
+      @include transform(scaleX(1));
+    }
+    100% {
+      @include transform(scaleX(0));
+    }
+  }
+
+  @include keyframes(scaleMaxY) {
+    0% {
+      @include transform(scaleY(0));
+    }
+    100% {
+      @include transform(scaleY(1));
+    }
+  }
+
+  @include keyframes(scaleMinY) {
+    0% {
+      @include transform(scaleY(1));
+    }
+    100% {
+      @include transform(scaleY(0));
+    }
+  }
+
+  //-------------------------------------------------- Rotate
+  @include keyframes(rotateL) {
+    0% {
+      @include transform(rotate(360deg));
+    }
+    100% {
+      @include transform(rotate(0deg));
+    }
+  }
+
+  @include keyframes(rotateR) {
+    0% {
+      @include transform(rotate(-360deg));
+    }
+    100% {
+      @include transform(rotate(0deg));
+    }
+  }
+
+  // Base Animation
+  // -------------------------------------------------------------------
+  .topIn {
+    @include setAnimation($name: topIn);
+  }
+
+  .bottomIn {
+    @include setAnimation($name: bottomIn);
+  }
+
+  .leftIn {
+    @include setAnimation($name: leftIn);
+  }
+
+  .rightIn {
+    @include setAnimation($name: rightIn);
+  }
+
+  .moveTopBottom {
+    @include setAnimation($name: moveTopBottom);
+  }
+
+  .moveTopBottom {
+    @include setAnimation($name: moveTopBottom);
+  }
+
+  .moveLeftRight {
+    @include setAnimation($name: moveLeftRight);
+  }
+
+  .moveRightLeft {
+    @include setAnimation($name: moveRightLeft);
+  }
+
+  .rubberBand {
+    @include setAnimation($name: rubberBand);
+  }
+
+  .bounce {
+    @include setAnimation($name: bounce, $count: 1);
+    @include transform-origin(center bottom);
+  }
+
+  .bounceIn {
+    @include setAnimation($name: bounceIn);
+  }
+
+  .bounceInUp {
+    @include setAnimation($name: bounceInUp, $duration: 1s, $easing: $ease-out-quad, $count: 1);
+  }
+
+  .bounceInDown {
+    @include setAnimation($name: bounceInDown);
+  }
+
+  .bounceInLeft {
+    @include setAnimation($name: bounceInLeft);
+  }
+
+  .bounceInRight {
+    @include setAnimation($name: bounceInRight);
+  }
+
+  .bounceOut {
+    @include setAnimation($name: bounceOut);
+  }
+
+  .bounceOutUp {
+    @include setAnimation($name: bounceOutUp);
+  }
+
+  .bounceOutDown {
+    @include setAnimation($name: bounceOutDown);
+  }
+
+  .bounceOutLeft {
+    @include setAnimation($name: bounceOutLeft);
+  }
+
+  .bounceOutRight {
+    @include setAnimation($name: bounceOutRight);
+  }
+
+  .fadeIn {
+    @include setAnimation($name: fadeIn, $duration: 0.6s, $easing: $ease-out-quad, $count: 1);
+    display: block;
+  }
+
+  .fadeInUp {
+    @include setAnimation($name: fadeInUp);
+  }
+
+  .fadeInDown {
+    @include setAnimation($name: fadeInDown);
+  }
+
+  .fadeInLeft {
+    @include setAnimation($name: fadeInLeft);
+  }
+
+  .fadeInRight {
+    @include setAnimation($name: fadeInRight);
+  }
+
+  .fadeOut {
+    @include setAnimation($name: fadeOut, $duration: 0.6s, $easing: $ease-out-cubic, $count: 1);
+    @include opacity(0);
+    display: none;
+  }
+
+  .fadeOutUp {
+    @include setAnimation($name: fadeOutUp);
+  }
+
+  .fadeOutDown {
+    @include setAnimation($name: fadeOutDown);
+  }
+
+  .fadeOutLeft {
+    @include setAnimation($name: fadeOutLeft);
+  }
+
+  .fadeOutRight {
+    @include setAnimation($name: fadeOutRight);
+  }
+
+  .swing {
+    @include setAnimation($name: swing, $duration: 5s);
+  }
+
+  .shake {
+    @include setAnimation($name: shake);
+  }
+
+  .flip {
+    @include setAnimation($name: flip);
+  }
+
+  .flipInX {
+    @include setAnimation($name: flipInX);
+  }
+
+  .flipInY {
+    @include setAnimation($name: flipInY);
+  }
+
+  .flipOutX {
+    @include setAnimation($name: flipOutX);
+  }
+
+  .flipOutY {
+    @include setAnimation($name: flipOutY);
+  }
+
+  .scaleMax {
+    @include setAnimation($name: scaleMax);
+  }
+
+  .scaleMin {
+    @include setAnimation($name: scaleMin);
+  }
+
+  .scaleMaxX {
+    @include setAnimation($name: scaleMaxX);
+  }
+
+  .scaleMinX {
+    @include setAnimation($name: scaleMinX);
+  }
+
+  .scaleMaxY {
+    @include setAnimation($name: scaleMaxY);
+  }
+
+  .scaleMinY {
+    @include setAnimation($name: scaleMinY);
+  }
+
+  .rotateL {
+    @include setAnimation($name: rotateL, $duration: 3s, $easing: linear);
+  }
+
+  .rotateR {
+    @include setAnimation($name: rotateR, $duration: 3s, $easing: linear);
+  }
+}

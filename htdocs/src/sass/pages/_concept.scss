@@ -1,0 +1,264 @@
+@charset "utf-8";
+// ===================================================================
+//  File:	pages/_concept.scss
+//  Date:	2017-12-04(UTC+9)
+//  Note:	
+// ===================================================================
+.xConcept {
+	.main-image {
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			background: $bg_block_concept;
+		}
+	}
+}
+
+
+// -------------------------------------------------------------------
+// .features-detail
+// -------------------------------------------------------------------
+.features-detail {
+	.block__catch {
+		color: $base_text_color;
+		@include fontsize(18);
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			@include fontsize(20);
+		}
+	}
+}
+
+
+// -------------------------------------------------------------------
+// .block-planning
+// -------------------------------------------------------------------
+.block-planning {
+	.xConcept & {
+		text-align: center;
+	}
+	.block__catch {
+		color: $base_corporate_color;
+	}
+}
+
+// -------------------------------------------------------------------
+// .block-features
+// -------------------------------------------------------------------
+.block-features {
+	//	[media queries SP]
+	// ----------------------------------------
+	@include media(sp) {
+		padding-right: 10px;
+		padding-left: 10px;
+	}
+	//	.block-features__image
+	// ----------------------------------------
+	@include element(image) {
+		margin-bottom: 3em;
+	}
+	//	.block-feature__list
+	// ----------------------------------------
+	@include element(list) {
+		@include clearfix;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			box-sizing: border-box;
+			width: 100%;
+			max-width: $site_width;
+			margin-right: auto;
+			margin-left: auto;
+		}
+		//	.block-features__list__item
+		// ----------------------------------------
+		@include element(item) {
+			float: left;
+			box-sizing: border-box;
+			width: 48%;
+			margin-right: 2%;
+			text-align: center;
+			&:nth-child(n+3) {
+				margin-top: $base_padding*2;
+			}
+			&:last-child {
+				margin-right: 0;
+			}
+			//	[media queries SP]
+			// ----------------------------------------
+			@include media(sp) {
+				&:nth-child(2n) {
+					margin-right: 0;
+					margin-left: 2%;
+				}
+			}
+			//	[media queries PC-tablet]
+			// ----------------------------------------
+			@include media(pc-tb) {
+				width: calc(( 100% - 90px) / 4);
+				margin-right: 30px;
+				&:nth-child(n+3) {
+					margin-top: 0;
+				}
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+			a {
+				color: $base_text_color;
+			}
+			figcaption {
+				@include fontsize(12);
+			}
+		}
+		//	.block-features__list__title
+		// ----------------------------------------
+		@include element(title) {
+			display: block;
+			margin: .6em 0 .2em;
+			@include fontsize(20);
+			line-height: 1;
+			color: #b58e71;
+			//	[media queries PC-tablet]
+			// ----------------------------------------
+			@include media(pc-tb) {
+				@include fontsize(24);
+			}
+			& + span {
+				font-weight: bold;
+			}
+		}
+		p {
+			margin-top: .5em;
+			@include fontsize(14);
+		}
+	}
+}
+
+
+// -------------------------------------------------------------------
+// .feature-unit
+// -------------------------------------------------------------------
+.feature-unit {
+	margin-top: $base_padding*6;
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		margin-top: $base_padding*8;
+	}
+	//	.feature-unit__body
+	// ----------------------------------------
+	@include element(body) {
+		@extend .container;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			@include clearfix;
+			box-sizing: border-box;
+			text-align: left;
+		}
+	}
+	//	.feature-unit__title
+	// ----------------------------------------
+	@include element(title) {
+		margin-bottom: 1.5em;
+		text-align: center;
+		@include fontsize(30);
+		font-family: $base_font_family_noto;
+		font-weight: normal;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			@include fontsize(30);
+		}
+		//	.block__title--main
+		// ----------------------------------------
+		@include modifier(main) {
+			display: block;
+		}
+		//	.block__title--sub
+		// ----------------------------------------
+		@include modifier(sub) {
+			display: block;
+			@include fontsize(14);
+			font-weight: normal;
+			color: $base_text_color;
+			font-family: $base_font_family;
+		}
+		* + & {
+			padding: $base_padding*6 0 0;
+			//	[media queries PC-tablet]
+			// ----------------------------------------
+			@include media(pc-tb) {
+				padding: $base_padding*8 0 0;
+			}
+		}
+	}
+	//	.feature-unit__image
+	// ----------------------------------------
+	@include element(image) {
+		margin-bottom: 1.6em;
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			@include clearfix;
+			img {
+				width: auto;
+			}
+		}
+		//	[media queries SP]
+		// ----------------------------------------
+		@include media(sp) {
+			margin-top: $base_padding*2;
+		}
+	}
+	//	.feature-unit__text
+	// ----------------------------------------
+	@include element(text) {
+		width: 100%;
+		margin: 0 auto;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			@include clearfix;
+			max-width: $base_content_width;
+		}
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include element(title) {
+			@include fontsize(18);
+			font-weight: bold;
+			* + & {
+				margin-top: 2em;
+			}
+			//	[media queries PC-tablet]
+			// ----------------------------------------
+			@include media(pc-tb) {
+				@include fontsize(16);
+			}
+		}
+	}
+	&.is--stores {
+		display: none;
+		.block__catch {
+			color: $base_corporate_color;
+		}
+	}
+}
+
+.stores-list {
+	margin-top: 2em;
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		column-count:3;
+		text-align: center;
+	}
+}

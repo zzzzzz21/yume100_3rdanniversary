@@ -1,0 +1,331 @@
+@charset "utf-8";
+// ===================================================================
+//  File:	pages/_top.scss
+//  Date:	2017-12-02(UTC+9)
+//  Note:	
+// ===================================================================
+// -------------------------------------------------------------------
+// .mainImage
+// -------------------------------------------------------------------
+.mainImage {
+	position: relative;
+	min-height: 400px ;
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		max-height: 778px;
+	}
+	//	.mainImage__photo
+	// ----------------------------------------
+	@include element(photo) {
+		//	[media queries SP]
+		// ----------------------------------------
+		@include media(sp) {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center center;
+			overflow: hidden;
+		}
+	}
+}
+
+
+// -------------------------------------------------------------------
+// .mainCopy
+// -------------------------------------------------------------------
+.mainCopy {
+	box-sizing: border-box;
+	width: 100%;
+	position: static;
+	text-align: center;
+	padding: 10px;
+	//	[media queries SP]
+	// ----------------------------------------
+	@include media(sp) {
+		background: $base_corporate_color;
+		color: $base_white_color;
+	}
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 0;
+	}
+	.container {
+		position: relative;
+		box-sizing: border-box;
+		padding: $base_padding*3 0;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			padding: 2em;
+		}
+	}
+	//	.mainCopy__head
+	// ----------------------------------------
+	@include element(head) {
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			text-align: right;
+		}
+	}
+	//	.mainCopy__title
+	// ----------------------------------------
+	@include element(title) {
+		margin-bottom: $base_padding;
+		@include fontsize(30);
+		color: $base_white_color;
+		line-height: 1.2;
+		font-family: $base_font_family_noto;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			@include fontsize(64);
+			text-shadow: 0 0 5px $base_text_color;
+			font-family: $base_font_family;
+			font-weight: normal;
+		}
+		span {
+			@include fontsize(14);
+			vertical-align: middle;
+			//	[media queries PC-tablet]
+			// ----------------------------------------
+			@include media(pc-tb) {
+				@include fontsize(16);
+			}
+		}
+	}
+	//	.mainCopy__body
+	// ----------------------------------------
+	@include element(body) {
+		color: $base_white_color;
+		@include fontsize(14);
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			@include fontsize(16);
+		}
+	}
+	//	.mainCopy__foot
+	// ----------------------------------------
+	@include element(foot) {
+		position: relative;
+		box-sizing:border-box;
+		display: inline-block;
+		margin: 2em 0 1em auto;
+		padding: .6em 2em;
+		border: 2px solid $base_white_color;
+		@include fontsize(14);
+		color: $base_white_color;
+		font-weight: bold;
+		text-align: center;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			display: block;
+			width: 22em;
+			margin-left: auto;
+			@include fontsize(16);
+		}
+	}
+	//	.mainCopy__catch
+	// ----------------------------------------
+	@include element(catch) {
+		display: none;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			position: relative;
+			color: $base_white_color;
+			font-weight: bold;
+			letter-spacing: .12em;
+			display: block;
+			width: 352px;
+			margin-left: auto;
+			@include fontsize(36);
+			text-align: center;
+			text-shadow: 0 0 5px #333;
+		}
+	}
+}
+// -------------------------------------------------------------------
+// .block
+// -------------------------------------------------------------------
+.block {
+	.siteIndex .contents & {
+		text-align: center;
+		.btn-detail {
+			margin-top: $base_padding*5;
+			//	[media queries PC-tablet]
+			// ----------------------------------------
+			@include media(pc) {
+				min-width: 280px;
+			}
+		}
+	}
+}
+
+
+// -------------------------------------------------------------------
+// .block-concept
+// -------------------------------------------------------------------
+.top-lead {
+	text-align: center;
+}
+.block-concept {
+//	.siteIndex & {
+//		background-color: $bg_block_concept;
+//	}
+}
+
+
+// -------------------------------------------------------------------
+// .block-planning
+// -------------------------------------------------------------------
+.block-planning {
+	.siteIndex & {
+		background: $bg_planning_color;
+	}
+	.block__foot {
+		a {
+			img {
+				display: block;
+				width: auto;
+				height: auto;
+				margin: 0 auto .6em;
+			}
+			span {
+				@include link-arrow;
+			}
+		}
+	}	
+}
+
+
+// -------------------------------------------------------------------
+// .block-room
+// -------------------------------------------------------------------
+.block-room {
+	.siteIndex & {
+//		background: $bg_block_features;
+	}	//	.block-room__image
+	// ----------------------------------------
+	@include element(image) {
+		margin-bottom: 4em;
+		img {
+			width: auto;
+			height: auto;
+			//	[media queries PC-tablet]
+			// ----------------------------------------
+			@include media(pc-tb) {
+			}
+		}
+	}
+}
+
+
+// -------------------------------------------------------------------
+// .block-features
+// -------------------------------------------------------------------
+.block-features {
+	.siteIndex & {
+		background: $bg_block_features;
+	}
+}
+
+
+// -------------------------------------------------------------------
+// .block-access
+// -------------------------------------------------------------------
+.block-access {
+	.siteIndex & {
+		background: $bg_block_access;
+	}
+	@include element(image) {
+		img {
+			display: block;
+			margin: auto;
+		}
+		* + & {
+			padding: $base_padding*6 0 0;
+			//	[media queries PC-tablet]
+			// ----------------------------------------
+			@include media(pc-tb) {
+				padding: $base_padding*8 0 0;
+			}
+		}
+	}
+	//	.block-access__body
+	// ----------------------------------------
+	@include element(body) {
+		.block-access__image + & {
+			margin-top: $base_padding*4;
+		}
+		@include clearfix;
+	}
+}
+.access-unit {
+	width: 100%;
+	text-align: center;
+	& + & {
+		margin-top: $base_padding*5;
+	}
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		width: 32%;
+		float: left;
+		&:nth-child(n+2) {
+			margin-left: 2%;
+		}
+		& + &  {
+			margin-top: 0;
+		}
+	}
+	//	.access-unit__title
+	// ----------------------------------------
+	@include element(title) {
+		display: block;
+		padding: .6em;
+		border: 1px solid $base_white_color;
+		color: $base_corporate_color;
+		font-weight: normal;
+		@include fontsize(18);
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			@include fontsize(24);
+			line-height: 1.4;
+		}
+		body:not(.siteIndex) & {
+			border-color: $base_corporate_color;
+		}
+	}
+	//	.access-unit__body
+	// ----------------------------------------
+	@include element(body) {
+		.access-unit__title + & {
+			margin-top: $base_padding*3;
+		}
+	}
+}
+
+
+// -------------------------------------------------------------------
+// .block-location
+// -------------------------------------------------------------------
+.block-location {
+	text-align: center;
+	.btn-detail {
+		margin-top: $base_padding*5;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc) {
+			min-width: 280px;
+		}
+	}
+}

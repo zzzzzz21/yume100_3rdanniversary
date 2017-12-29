@@ -1,0 +1,30 @@
+@charset "utf-8";
+// ===================================================================
+//  File:	components/_mainVisual.scss
+//  Date:	2017-04-10(UTC+9)
+//  Note:	
+// ===================================================================
+// -------------------------------------------------------------------
+// 	..mainVisual
+// -------------------------------------------------------------------
+.mainVisual {
+	position: relative;
+	background: url(#{$image_path}bg_block.gif) 0 0 no-repeat;
+	background-size: cover;
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		ul {
+			max-width: 1320px;
+			margin: 0 auto;
+		}
+	}
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(sp) {
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}

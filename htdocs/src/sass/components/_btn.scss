@@ -1,0 +1,92 @@
+@charset "utf-8";
+// ===================================================================
+//  File:	layout/_btn.scss
+//  Date:	2017-04-10(UTC+9)
+//  Note:	
+// ===================================================================
+.btn-area {
+	margin-top: 1em;
+	text-align: center;
+}
+
+// 	詳しくはこちらボタン
+// ----------------------------------------
+.btn-detail {
+	@include btn-next;
+}
+
+// 	戻るボタン
+// ----------------------------------------
+.btn-back {
+	@include btn-back;
+}
+
+// 	お問合せボタン
+// ----------------------------------------
+.contact__form {
+	&__btn a {
+		display: inline-block;
+		margin-bottom: 1em;
+		padding: .4em 2em;
+		border: 1px solid #2c3e4a;
+		border-radius: $base_radius;
+		color: #2c3e4a;
+		@include transition(all ease .3s .1s);
+		&:hover {
+			background: #2c3e4a;
+			color: $base_white_color;
+		}
+	}
+}
+
+
+
+// 	トップページへ戻るボタン
+// ----------------------------------------
+.btn-top,
+.btn-top a {
+	@include btn-back;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #f60;
+	color: $base_white_color!important;
+	//	[media queries PC]
+	// ----------------------------------------
+	@include media(pc) {
+		width: 40%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	&:after {
+		top: 35%;
+		border-color: $base_white_color;
+	}
+}
+
+
+// 	外部リンクボタンボタン
+// ----------------------------------------
+.btn-target,
+a.btn-target {
+	@include btn-target;
+}
+
+
+// 	2つボタンが並ぶ
+// ----------------------------------------
+.btns-block {
+	margin: 0 auto;
+	.btn + .btn {
+		margin-top: 2em;
+	}
+}
+
+
+// 	リンクテキスト
+// ----------------------------------------
+.link-arrow {
+	@include link-arrow;
+}
+.link-target {
+	@include link-arrow;
+}

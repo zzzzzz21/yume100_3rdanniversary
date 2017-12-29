@@ -1,0 +1,85 @@
+@charset "utf-8";
+// ===================================================================
+//  File:	/share/css/style.scss
+//  Date:2017-10-17(UTC+9)
+//  Note:	made by shimizu@hakarai
+// ===================================================================
+
+
+//	Reset
+// -------------------------------------------------------------------
+@import "base/reset";
+
+
+//	Variables
+// -------------------------------------------------------------------
+@import "helpers/variables";
+@import "helpers/all";
+@import "helpers/btn-link";
+
+
+
+
+//	Base
+// -------------------------------------------------------------------
+@import "base/mediaquery";
+@import "base/structure";
+
+
+//	Components
+// -------------------------------------------------------------------
+@import "components/gNav";
+@import "components/breadcrumb";
+@import "components/btn";
+@import "components/font";
+@import "components/google-map";
+@import "components/tab";
+@import "components/table";
+@import "components/list";
+@import "components/block-contact";
+
+
+//	Layout
+// -------------------------------------------------------------------
+@import "layout/header";
+@import "layout/footer";
+
+
+//	Projects
+// -------------------------------------------------------------------
+
+
+//	Pages
+// -------------------------------------------------------------------
+@import "pages/pages";
+@import "pages/top";
+@import "pages/map";
+@import "pages/concept";
+@import "pages/equipment";
+@import "pages/room";
+
+
+// Themes
+// -------------------------------------------------------------------
+@import "themes/state";
+
+
+// Vendors
+// -------------------------------------------------------------------
+@import "vendors/slick/slick";
+@import "vendors/slick/slick-theme";
+
+
+// ===================================================================
+//  File:	
+//  Date:	2015-09-20(UTC+9)
+//  Note:	
+// ===================================================================
+// -------------------------------------------------------------------
+// 大コメント
+// -------------------------------------------------------------------
+// 	中コメント
+// -------------------------------------------------
+// 	小コメント
+// -----------------
+// cssに出力するコメント

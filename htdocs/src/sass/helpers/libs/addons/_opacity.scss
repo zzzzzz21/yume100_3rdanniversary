@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+// ===================================================================
+//  File:	helpers/libs/addons/_utility.scss
+//  Date:	2016-05-02(UTC+9)
+//  Note:	@include opacity(.8)
+// ===================================================================
+@mixin opacity($opacity) {
+  $opacityIE: $opacity * 100;
+  opacity: $opacity;
+  filter: alpha(opacity=$opacityIE);
+}

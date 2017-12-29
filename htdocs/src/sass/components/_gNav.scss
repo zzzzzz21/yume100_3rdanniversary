@@ -1,0 +1,344 @@
+@charset "utf-8";
+// ===================================================================
+//  File:	components/_gNav.scss
+//  Date:	2017-12-10(UTC+9)
+//  Note:	
+// ===================================================================
+.globalHeader {
+	background: rgba($base_white_color, .8);
+	body:not(.siteIndex) & {
+		border-bottom: 1px solid $base_border_color;
+	}
+	@include element(inner) {
+		box-sizing: border-box;
+		position: relative;
+		width: 100%;
+		height: 60px;
+		margin: 0 auto;
+		padding: 1em $base_padding $base_padding;
+		//	[media queries tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			max-width: $site_width;
+			height: auto;
+			@include clearfix;
+		}
+	}
+	&.is--fixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 100;
+		width: 100%;
+		border-bottom: 1px solid $base_border_color;
+	}
+}
+// 	ハンバーガーメニュー
+// ----------------------------------------
+.gNavi {
+	position: relative;
+	.siteTitle__logo {
+		//	[media queries tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			float: left;
+		}
+		img {
+			width: auto;
+			height: 30px;
+			//	[media queries tablet]
+			// ----------------------------------------
+			@include media(pc-tb) {
+				height: auto;
+			}
+		}
+	}
+	// 	.gNavi__title
+	// ----------------------------------------
+	@include element(title) {
+		box-sizing: border-box;
+		display: block;
+		position: absolute;
+		overflow: hidden;
+		right: -$base_padding;
+		top: -1em;
+		width: 60px;
+		height: 60px;
+		padding: 12px 8px;
+	//	background: $base_menu_color;
+		cursor: pointer;
+		z-index: 1100;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			display: none;
+		}
+		.is-open & {
+			top: 0;
+			right: 0;
+		}
+		&:after {
+			position: absolute;
+			display: block;
+			width: 100%;
+			@include alignC;
+			bottom: 1px;
+			left: 0;
+			color: $base_menu_color;
+			@include fontsize(10);
+			text-transform: uppercase;
+			content: 'menu';
+			text-align: center;
+			//	[media queries PC-tablet]
+			// ----------------------------------------
+			@include media(pc-tb) {
+				@include fontsize(12);
+			}
+		}
+		> span {
+			position: relative;
+			display: block;
+			&:before,  &:after, > span:before, > span:after {
+				position: absolute;
+				content: '';
+				display: block;
+				width: 44px;
+				height: 4px;
+				background: $base_menu_color;
+				border-radius: 6px;
+				@include transition(all linear .5s);
+			}
+			&:before {
+				top: 0;
+			}
+			&:after {
+				bottom: 11px;
+			}
+			> span {
+				display: block;
+				width: 24px;
+				height: 36px;
+				text-indent: 100%;
+				white-space: nowrap;
+				overflow: hidden;
+			}
+			> span:before, > span:after {
+				top: 11px;
+			}
+		}
+		//	[MENU open]
+		.is-open & {
+			background: $base_white_color;
+			//	[media queries SP]
+			// ----------------------------------------
+			@include media(sp){
+				position: fixed;
+				@include opacity(1);
+			}
+			&:after {
+				content: 'close';
+				color: $base_menu_color;
+			}
+			> span {
+				&:before,  &:after, > span:before, > span:after {
+					background: $base_menu_color;
+				}
+				&:before, &:after {
+					-webkit-transform: translateX(200%);
+					transform: translateX(200%);
+				}
+			}
+			> span > span {
+				&:before {
+					-webkit-transform: rotate(315deg);
+					transform: rotate(315deg);
+				}
+				&:after {
+					-webkit-transform: rotate(-315deg);
+					transform: rotate(-315deg);
+				}
+			}
+		}
+	}
+	// 	.gNavi__catch
+	// ----------------------------------------
+	@include element(catch) {
+		position: absolute;
+		left: 114px;
+		top: 0;
+		padding: .4em 1em;
+		border: 1px solid $base_text_color;
+		@include fontsize(13);
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			display: none;
+		}
+	}
+	// 	.gNavi__body::MENU本体
+	// ----------------------------------------
+	@include element(body) {
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			float: right;
+		}
+		//	[media queries SP]
+		// ----------------------------------------
+		@include media(sp) {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 100;
+			overflow: auto;
+			z-index: 1000;
+			background: $base_menu_overlay;
+		}
+	}
+	// 	.gNavi__contents
+	// ----------------------------------------
+	@include element(contents) {
+		box-sizing: border-box;
+		width: 100%;
+		padding: $base_padding*8 $base_padding*2 0;
+		color: $base_text_color;
+		//	[media queries tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			padding: 0;
+		}
+		// 	.gNavi__contents__title
+		// ----------------------------------------
+		@include element(title) {
+			display: none;
+		}
+		// 	.gNavi__contents__body
+		// ----------------------------------------
+		@include element(body) {
+			ul {
+				//	[media queries SP]
+				// ----------------------------------------
+				@include media(sp) {
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: space-between;
+					align-items: center;
+				}
+			}
+		}
+	}
+	// 	.gNavi__item
+	// ----------------------------------------
+	@include element(item) {
+		position: relative;
+		@include transition(all linear .5s);
+		> a, >span {
+			position: relative;
+			box-sizing: border-box;
+			display: block;
+			padding: .8em;
+			color: $base_text_color;
+			text-align: center;
+			@include fontsize(16);
+			//	[media queries SP]
+			// ----------------------------------------
+			@include media(sp) {
+				border: 1px solid $base_corporate_color;
+				border-radius: $base_radius;
+				background: $base_white_color;
+			}
+		}
+		//	[media queries SP]
+		// ----------------------------------------
+		@include media(sp) {
+			flex: 1 0 48%;
+			margin: 20px 1% 0;
+			.xConcept &.is-concept a,
+			.xRoom &.is-room a,
+			.xEquipment &.is-equipment a,
+			.xOutline &.is-outline a,
+			.xAccess &.is-access a {
+				border-color: $base_white_color;
+				background: $base_corporate_color;
+				.en, .ja {
+					color: $base_white_color;
+				}
+			}
+			.en {
+				display: block;
+			}
+			.ja {
+				display: block;
+				@include fontsize(18);
+				font-weight: bold;
+				color: $base_corporate_color;
+			}
+		}
+		//	[media queries PC]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			display: inline-block;
+			border-right: 1px solid $base_border_color;
+			vertical-align: bottom;
+			&.is-concept {
+				border-left: 1px solid $base_border_color;
+			}
+			> a, >span {
+				padding: .6em 1.2em;
+				@include fontsize(14);
+			}
+			> a:hover, a:focus {
+				color: $base_corporate_color;
+			}
+			&:after {
+				position: absolute;
+				top: 60%;
+				left: 50%;
+				color: transparent;
+				content: '•';
+				text-shadow: 0 0 transparent;
+				@include fontsize(14);
+				font-weight: bold;
+				transition: text-shadow 0.3s, color 0.3s;
+				transform: translateX(-50%);
+				pointer-events: none;
+			}
+			.en {
+				display: block;
+			}
+			.ja {
+				display: none;
+			}
+			&.is-current,
+			&:hover,
+			.xConcept &.is-concept,
+			.xRoom &.is-room,
+			.xEquipment &.is-equipment,
+			.xOutline &.is-outline,
+			.xAccess &.is-access {
+				&:after {
+					color: $base_corporate_color;
+					text-shadow: 10px 0 $base_corporate_color, -10px 0 $base_corporate_color;
+				}
+			}
+			.xConcept &.is-concept,
+			.xRoom &.is-room,
+			.xEquipment &.is-equipment,
+			.xOutline &.is-outline,
+			.xAccess &.is-access {
+				.en {
+					display: none;
+				}
+				.ja {
+					display: block;
+					color: $base_corporate_color;
+					font-weight: bold;
+				}
+			}
+
+		}
+	}
+}

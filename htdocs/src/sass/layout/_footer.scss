@@ -1,0 +1,186 @@
+@charset "utf-8";
+// ===================================================================
+//  File:	layout/_footer.scss
+//  Date:	2017-12-02(UTC+9)
+//  Note:	
+// ===================================================================
+// -------------------------------------------------------------------
+// 	.globalFooter
+// -------------------------------------------------------------------
+.globalFooter {
+	@include centering;
+	position: relative;
+	z-index: 30;
+	// -------------------------------------------------
+	// 	.gotoTop
+	// -------------------------------------------------
+	.gotoTop {
+		position: fixed;
+		z-index: 10000;
+		bottom: $base_padding*.6;
+		right: 20px;
+		@include opacity(.6);
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			right: 25px;
+		}
+		a.btn-toTop {
+			@include btn-up;
+			width: $base_padding*2;
+			height: $base_padding*2;
+//			@include opacity(.4);
+			&:after {
+				top: 6px;
+				border-color: $base_text_color;
+			}
+			&:hover, &:active {
+				@include opacity(1);
+				background: $base_footer_color;
+				border-color: $base_border_color;
+			}
+		}
+	}
+	// -------------------------------------------------
+	// 	.copyright
+	// -------------------------------------------------
+	.copyright {
+		padding: 1em 0;
+		background: $base_footer_color;
+		@include alignC;
+		color: $base_white_color;
+	}
+	// -------------------------------------------------
+	// 	.globalFooter--foot
+	// -------------------------------------------------
+	@include modifier(foot) {
+		padding: $base_padding*2 0;
+		@include element(notice) {
+			padding: $base_padding*2 0 $base_padding*4;
+			@include fontsize(12);
+			text-align: center;
+		}
+		// 	.globalFooter--foot__navi
+		// -------------------------------------------------
+		@include element(navi) {
+			text-align: center;
+			//	[media queries PC]
+			// ----------------------------------------
+			@include media(pc) {
+				float: left;
+				margin-top: 1.4em;
+				text-align: left;
+				@include fontsize(13);
+			}
+			// 	.globalFooter--foot__navi__item
+			// -------------------------------------------------
+			@include element(item) {
+				display: inline-block;
+				a {
+					color: $base_text_color;
+				}
+				&:nth-child(n+2) {
+					margin-left: .6em;
+					padding-left: .6em;
+					border-left: 1px solid $base_text_color;
+					//	[media queries PC-tablet]
+					// ----------------------------------------
+					@include media(pc-tb) {
+						margin-left: .8em;
+						padding-left: 1em;
+					}
+				}
+			}
+		}
+		// 	.globalFooter--foot__logo
+		// -------------------------------------------------
+		@include element(logo) {
+			margin-top: $base_padding*2;
+			text-align: center;
+			@include fontsize(13);
+			//	[media queries PC]
+			// ----------------------------------------
+			@include media(pc) {
+				margin-top: 0;
+				float: right;
+			}
+			// 	.globalFooter--foot__logo__item
+			// -------------------------------------------------
+			@include element(item) {
+				display: block;
+				//	[media queries PC-tablet]
+				// ----------------------------------------
+				@include media(pc-tb) {
+					display: inline-block;
+					width: calc(50% - 2em);
+					vertical-align: top;
+				}
+				&:nth-child(n+2) {
+					margin-top: 2em;
+					//	[media queries PC-tablet]
+					// ----------------------------------------
+					@include media(pc-tb) {
+						margin-top: 0;
+						margin-left: 2em;
+					}
+				}
+				span {
+					display: block;
+				}
+				//	[media queries PC-tablet]
+				// ----------------------------------------
+				@include media(pc-tb) {
+					span {
+						margin-bottom: 1em;
+					}
+					&:nth-child(2) span {
+						margin-bottom: .5em;
+					}
+				}
+				img {
+					vertical-align: middle;
+				}
+			}
+			// 	.globalFooter--foot__logo--thp
+			// -------------------------------------------------
+			@include modifier(thp) {
+				//	[media queries PC-tablet]
+				// ----------------------------------------
+				@include media(pc-tb) {
+					width: auto;
+					height: 23px;
+				}
+				//	[media queries SP]
+				// ----------------------------------------
+				@include media(sp) {
+				}
+			}
+		}
+	}
+}
+
+
+// -------------------------------------------------------------------
+// 	.sns-ooter
+// -------------------------------------------------------------------
+.sns-footer {
+	padding: 1em 0;
+	text-align: center;
+	background: $bg_block_contact;
+	//	.sns-footer__item
+	// ----------------------------------------
+	@include element(item) {
+		display: inline-block;
+		padding: 0 8px;
+		vertical-align: top;
+	}
+	.is-facebook {
+		margin-top: -2px;
+	}
+	.is-line {
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+		}
+	}
+}

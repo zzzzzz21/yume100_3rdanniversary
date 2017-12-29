@@ -1,0 +1,45 @@
+{
+  "name": "hakarai.co.jp",
+  "version": "1.0.0",
+  "description": "hakarai inc.",
+  "main": "Gruntfile.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "normalize.css": "^3.0.3"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "*",
+    "grunt-bower-task": "*",
+    "grunt-browser-sync": "*",
+    "grunt-combine-media-queries": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-compass": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-connect": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-htmlmin": "*",
+    "grunt-contrib-livereload": "*",
+    "grunt-contrib-sass": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-csscomb": "*",
+    "grunt-ect": "*",
+    "grunt-imageoptim": "*",
+    "grunt-notify": "*",
+    "grunt-open": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shimizu@hakarai",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://hakarai.backlog.jp/git/HAKARAI_WEBSITE/hakarai_htdocs.git"
+  }
+}
