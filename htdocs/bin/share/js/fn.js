@@ -9,10 +9,13 @@ $(function () {
 		header = $('#data-header'),
 		headerH = $(header).outerHeight(),
 		headerPos = $(header).offset().top,
+		main = $('.mainImage'),
+		mainH = $(main).outerHeight(),
+		mainPos = $(main).offset().top,
 		contents = $('#data-contents'),
 		contentsH = $(contents).height();
 		$gNavBtn = $('#data-gNavi-title'),
-		$gNavItem = $('.gNavi__item a'),
+		$gNavItem = $('.gNavi__item a, .gNavi__item span'),
 		$gNavBody = $('#data-gNavi-body');
 		
 		
@@ -30,9 +33,9 @@ $(function () {
 	var href = $(this).attr('href');
 	var target = $(href == '#' || href == '' ? 'html' : href);
 	if (windowW < break_point_sp) {
-		var position = target.offset().top - 60;
+		var position = target.offset().top - headerH;
 	} else {
-		var position = target.offset().top - 100;
+		var position = target.offset().top - headerH;
 	}
 	$('body, html').animate({ scrollTop: position }, speed, 'swing');
 	return false;
@@ -72,6 +75,15 @@ $gNavBody.on('click', function(){
 		state = false;
 	}
 });
+$gNavItem.on('click', function(){
+	if(state == true){
+		$gNavBtn.removeClass('is-close');
+		$body.removeClass('is-open').css({'top': 0});
+		$gNavBody.fadeOut();
+		window.scrollTo( 0 , scrollpos );
+		state = false;
+	}
+});
 
 // -------------------------------------------------
 //	fixed header
@@ -79,7 +91,7 @@ $gNavBody.on('click', function(){
 $(window).on('scroll', function() {
 	var value = $(this).scrollTop(),
 		fixedClass = 'is--fixed';
-	if ( value > headerPos ) {
+	if ( value > mainH - headerH ) {
 		siteTitle.fadeIn();
 		$('#data-siteTitle').addClass(fixedClass);
 		header.addClass(fixedClass);
@@ -128,7 +140,7 @@ $(document).ready(function(){
 	var toTopButton = $('.gotoTop');
 	toTopButton.hide();
 	$(window).scroll(function () {
-		if ($(this).scrollTop() > 780) {
+		if ($(this).scrollTop() > mainH) {
 			toTopButton.fadeIn();
 		} else {
 			toTopButton.fadeOut();

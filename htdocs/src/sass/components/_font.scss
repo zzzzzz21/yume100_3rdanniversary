@@ -1,18 +1,38 @@
 @charset "utf-8";
 // ===================================================================
 //  File:	components/_font.scss
-//  Date:	2017-10-23(UTC+9)
+//  Date:	2017-12-31(UTC+9)
 //  Note:	
 // ===================================================================
-@font-face {
-	font-family: 'Noto Serif';
-	font-style: normal;
-	font-weight: 400;
-	src: url("../fonts/NotoSerifCJKjp/NotoSerifCJKjp-Regular.otf") format("opentype");
+@mixin title-font {
+	@include fontsize(24);
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		@include fontsize(30);
+	}
 }
-@font-face {
-	font-family: 'Noto Serif';
-	font-style: normal;
-	font-weight: 700;
-	src: url("../fonts/NotoSerifCJKjp/NotoSerifCJKjp-Bold.otf") format("opentype");
+@mixin title-font-midium {
+	@include fontsize(18);
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		@include fontsize(18);
+	}
+}
+@mixin body-font {
+	@include fontsize(16);
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		@include fontsize(20);
+	}
+}
+@mixin body-font-midium {
+	@include fontsize(14);
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		@include fontsize(14);
+	}
 }

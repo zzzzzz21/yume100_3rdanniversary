@@ -1,9 +1,82 @@
 @charset "utf-8";
 // ===================================================================
 //  File:	pages/_pages.scss
-//  Date:	2017-10-18(UTC+9)
+//  Date:	2017-12-31(UTC+9)
 //  Note:	
 // ===================================================================
+// -------------------------------------------------------------------
+// .block
+// -------------------------------------------------------------------
+.block {
+	box-sizing: border-box;
+	position: relative;
+	z-index: 10;
+	background: $base_white_color;
+	//	.block__body
+	// ----------------------------------------
+	@include element(body) {
+		padding: 0 0 $base_padding*8;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			padding: 0 0 $base_padding*9;
+		}
+	}
+	p + p {
+		margin-top: 1em;
+	}
+}
+
+
+// -------------------------------------------------------------------
+// .container
+// -------------------------------------------------------------------
+.container {
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 $base_padding;
+	@include clearfix;
+	//	[media queries tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		max-width: calc( #{$site_width} + 20px );
+	}
+	//	[media queries tablet]
+	// ----------------------------------------
+	@include media(tb) {
+	}
+	//	[media queries SP]
+	// ----------------------------------------
+	@include media(sp) {
+	}
+	@include element(inner) {
+		width: 100%;
+		margin: 0 auto;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			@include clearfix;
+			max-width: $base_content_width;
+		}
+	}
+}
+
+
+// 	.unit
+// -------------------------------------------------
+.unit + .unit {
+	margin-top: $base_padding*4;
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		margin-top: $base_padding*6;
+	}
+}
+
+
+// 	.block
+// -------------------------------------------------
 .block {
 	line-height: 1.8;
 	//	[media queries PC-tablet]
@@ -14,240 +87,55 @@
 	//	.block__title
 	// ----------------------------------------
 	@include element(title) {
-		margin-bottom: 1.5em;
-		text-align: center;
-		@include fontsize(30);
-		font-family: $base_font_family_noto;
-		font-weight: normal;
-		//	.block__title--main
+		margin: auto;
+		padding: 6.25% 0;
+		background: $base_corporate_color;
+		border-top: 3px solid $base_accent_color;
+		border-bottom: 3px solid $base_accent_color;
+		//	[media queries PC-tablet]
 		// ----------------------------------------
-		@include modifier(main) {
-			display: block;
+		@include media(pc-tb) {
+			padding: 32px 0;
 		}
-		//	.block__title--sub
-		// ----------------------------------------
-		@include modifier(sub) {
-			display: block;
-			@include fontsize(14);
-			font-weight: normal;
-			color: $base_text_color;
-			font-family: $base_font_family;
-		}
-		* + & {
-			padding: $base_padding*6 0 0;
+		> span {
+			@include text-indent;
+			width: 96px;
+			height: 74px;
+			margin: auto;
+			background-position: 0 0;
+			background-repeat: no-repeat;
+			background-size: contain;
 			//	[media queries PC-tablet]
 			// ----------------------------------------
 			@include media(pc-tb) {
-				padding: $base_padding*8 0 0;
+				width: 193px;
+				height: 148px;
+			}
+			.block-event & {
+				background-image: url(#{$image_path}title_event.png);
+			}
+			.block-cast & {
+				background-image: url(#{$image_path}title_cast.png);
+			}
+			.block-ticket & {
+				background-image: url(#{$image_path}title_ticket.png);
+			}
+			.block-goods & {
+				background-image: url(#{$image_path}title_goods.png);
+			}
+			.block-attention & {
+				background-image: url(#{$image_path}title_attention.png);
 			}
 		}
-	}
-	//	.block__lead
-	// ----------------------------------------
-	@include element(lead) {
-		text-align: center;
-		@include fontsize(20);
-		font-family: $base_font_family_noto;
-		font-weight: normal;
-		color: $base_corporate_color;
 	}
 	//	.block__body
 	// ----------------------------------------
 	@include element(body) {
-		& + & {
-			margin-top: $base_padding*4;
-			//	[media queries PC-tablet]
-			// ----------------------------------------
-			@include media(pc-tb) {
-				margin-top: $base_padding*6;
-			}
-		}
-	}
-	//	.block__catch
-	// ----------------------------------------
-	@include element(catch) {
-		@include fontsize(18);
-		font-family: $base_font_family_noto;
-		font-weight: normal;
-		color: #093;
-		text-align: center;
-		letter-spacing: .12em;
+		padding-top: $base_padding*8;
 		//	[media queries PC-tablet]
 		// ----------------------------------------
 		@include media(pc-tb) {
-			@include fontsize(36);
-		}
-		//	.block__catch--main
-		// ----------------------------------------
-		@include modifier(main) {
-			display: block;
-		}
-		//	.block__catch--sub
-		// ----------------------------------------
-		@include modifier(sub) {
-			display: block;
-			@include fontsize(16);
-			font-weight: normal;
-		}
-
-		& + * {
-			margin-top: $base_padding*3;
-		}
-	}
-	//	.block__foot
-	// ----------------------------------------
-	@include element(foot) {
-		text-align: center;
-		margin-top: $base_padding*5;
-		//	[media queries PC-tablet]
-		// ----------------------------------------
-		@include media(pc) {
-			min-width: 280px;
-		}
-		img {
-			width: auto;
-			max-width: 100%;
-		}
-	}
-}
-
-
-// ----------------------------------------
-//	.page-block
-// ----------------------------------------
-.page-block {
-	@extend .block;
-	//	.page-block__title
-	// ----------------------------------------
-	@include element(title) {
-		padding-left: 1.5em;
-		border-left: 6px solid #33cd49;
-		line-height: 1;
-		//	[media queries PC-tablet]
-		// ----------------------------------------
-		@include media(pc-tb) {
-			padding-left: 30px;
-		}
-		.xMap & {
-			color: $map_color;
-		}
-		//	.page-block__title--main
-		// ----------------------------------------
-		@include modifier(main) {
-			display: block;
-			margin-bottom: .4em;
-			@include fontsize(32);
-			font-weight: normal;
-			font-family: $base_font_family_helvetica;
-			vertical-align: middle;
-			//	[media queries PC-tablet]
-			// ----------------------------------------
-			@include media(pc-tb) {
-				display: inline-block;
-				@include fontsize(60);
-				margin-bottom: 0;
-			}
-		}
-		//	.page-block__title--sub
-		// ----------------------------------------
-		@include modifier(sub) {
-			position: relative;
-			display: block;
-			margin-left: -1em;
-			@include fontsize(16);
-			font-weight: normal;
-			vertical-align: middle;
-			&:before, &:after {
-				position: relative;
-				padding: 0 .6em;
-				@include fontsize(16);
-			}
-			&:before {
-				content: '［';
-			}
-			&:after {
-				content: '］';
-			}
-			//	[media queries PC-tablet]
-			// ----------------------------------------
-			@include media(pc-tb) {
-				display: inline-block;
-				margin-left: 0;
-				padding-left: 2em;
-			}
-		}
-	}
-	//	.page-block__body
-	// ----------------------------------------
-	@include element(body) {
-		.page-block__title + & {
-			margin-top: $base_padding*4;
-			//	[media queries PC-tablet]
-			// ----------------------------------------
-			@include media(pc-tb) {
-				margin-top: $base_padding*10;
-			}
-		}
-		.lead-text {
 			text-align: center;
-			& + .notice-text {
-				text-align: center;
-			}
-		}
-	}
-}
-
-
-// ----------------------------------------
-//	.main-image
-// ----------------------------------------
-.main-image {
-	box-sizing: border-box;
-	position: relative;
-	margin: $base_padding*4 0 0;
-	//	[media queries PC-tablet]
-	// ----------------------------------------
-	@include media(pc-tb) {
-		margin: $base_padding*6 0 0;
-	}
-	//	.main-image__inner
-	// ----------------------------------------
-	@include element(inner) {
-		width: 100%;
-		//	[media queries PC-tablet]
-		// ----------------------------------------
-		@include media(pc-tb) {
-			box-sizing: border-box;
-			width: 100%;
-			max-width: $site_width;
-			margin: 0 auto;
-		}
-	}
-}
-
-
-// ----------------------------------------
-//	.banner-360
-// ----------------------------------------
-.banner-360 {
-	margin-top: 6em;
-	//	[media queries PC-tablet]
-	// ----------------------------------------
-	@include media(pc) {
-		margin-top: 10em;
-		@include clearfix;
-	}
-	body:not(.siteIndex) & {
-		margin-top: 0;
-	}
-	span {
-		display: inline-block;
-		margin-top: 2em;
-		@include link-arrow;
-		//	[media queries PC-tablet]
-		// ----------------------------------------
-		@include media(pc) {
-			float: right;
 		}
 	}
 }

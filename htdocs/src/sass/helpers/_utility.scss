@@ -39,7 +39,7 @@ a {
 		color: $base_visited_color;
 	}
 	&:hover {
-		text-decoration: none;
+		text-decoration: underline;
 		color: $base_hover_color;
 	}
 	&:active {

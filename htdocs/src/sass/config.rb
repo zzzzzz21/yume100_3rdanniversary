@@ -4,10 +4,10 @@ require 'susy'
 
 # Set this to the root of your project when deployed:
 http_path = "/"
-css_dir = "bin/shinkawasaki/share/css"
+css_dir = "bin/share/css"
 sass_dir = "src/sass"
-images_dir = "bin/shinkawasaki/share/images"
-javascripts_dir = "bin/shinkawasaki/share/js"
+images_dir = "bin/share/images"
+javascripts_dir = "bin/share/js"
 Encoding.default_external = "UTF-8"
 
 # You can select your preferred output style here (can be overridden via the command line):

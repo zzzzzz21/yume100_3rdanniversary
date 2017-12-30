@@ -1,0 +1,23 @@
+@charset "utf-8";
+// ===================================================================
+//  File:	pages/_event.scss
+//  Date:	2017-12-31(UTC+9)
+//  Note:	
+// ===================================================================
+.event-info {
+	text-align: center;
+	//	.event-info__title
+	// ----------------------------------------
+	@include element(title) {
+		@include title-font;
+		font-weight: normal;
+	}
+	//	.event-info__body
+	// ----------------------------------------
+	@include element(body) {
+		@include body-font;
+	}
+	& + .google-map {
+		margin-top: $base_padding*5.6;
+	}
+}

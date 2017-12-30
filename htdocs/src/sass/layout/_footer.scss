@@ -158,29 +158,3 @@
 		}
 	}
 }
-
-
-// -------------------------------------------------------------------
-// 	.sns-ooter
-// -------------------------------------------------------------------
-.sns-footer {
-	padding: 1em 0;
-	text-align: center;
-	background: $bg_block_contact;
-	//	.sns-footer__item
-	// ----------------------------------------
-	@include element(item) {
-		display: inline-block;
-		padding: 0 8px;
-		vertical-align: top;
-	}
-	.is-facebook {
-		margin-top: -2px;
-	}
-	.is-line {
-		//	[media queries PC-tablet]
-		// ----------------------------------------
-		@include media(pc-tb) {
-		}
-	}
-}

@@ -1,0 +1,4 @@
+/htdocs/node_modules/
+/htdocs/src/.sass-cache/
+/htdocs/.sass-cache/
+*.psd

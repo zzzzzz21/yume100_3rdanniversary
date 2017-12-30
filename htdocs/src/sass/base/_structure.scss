@@ -45,66 +45,6 @@ body {
 .contents {
 	//padding-bottom: $base_padding*12;
 }
-.block {
-	box-sizing: border-box;
-	position: relative;
-	z-index: 10;
-	padding: $base_padding*4 0 $base_padding*6;
-	background: $base_white_color;
-	//	[media queries PC-tablet]
-	// ----------------------------------------
-	@include media(pc-tb) {
-		padding: $base_padding*6 0 $base_padding*8;
-	}
-	p + p {
-		margin-top: 1em;
-	}
-}
-.unit + .unit {
-	margin-top: $base_padding*4;
-	//	[media queries PC-tablet]
-	// ----------------------------------------
-	@include media(pc-tb) {
-		margin-top: $base_padding*6;
-	}
-}
-.container {
-	box-sizing: border-box;
-	width: 100%;
-	margin: 0 auto;
-	padding: 0 $base_padding;
-	@include clearfix;
-	//	[media queries tablet]
-	// ----------------------------------------
-	@include media(pc-tb) {
-		max-width: calc( #{$site_width} + 20px );
-	}
-	//	[media queries tablet]
-	// ----------------------------------------
-	@include media(tb) {
-	}
-	//	[media queries SP]
-	// ----------------------------------------
-	@include media(sp) {
-	}
-	@include element(inner) {
-		width: 100%;
-		margin: 0 auto;
-		//	[media queries PC-tablet]
-		// ----------------------------------------
-		@include media(pc-tb) {
-			@include clearfix;
-			max-width: $base_content_width;
-		}
-	}
-}
-.data-link-sp {
-	//	[media queries PC-tablet]
-	// ----------------------------------------
-	@include media(pc-tb) {
-		cursor: default;
-	}
-}
 
 .alignR {
 	@include alignR;

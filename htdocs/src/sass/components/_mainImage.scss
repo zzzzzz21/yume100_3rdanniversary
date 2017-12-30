@@ -1,0 +1,62 @@
+@charset "utf-8";
+// ===================================================================
+//  File:	components/_mainImage.scss
+//  Date:	2017-12-31(UTC+9)
+//  Note:	
+// ===================================================================
+// -------------------------------------------------------------------
+// 	.mainImage
+// -------------------------------------------------------------------
+.mainImage {
+	position: relative;
+	min-height: 101.5625vw;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-image: url(#{$image_path}sp/bg_main.jpg);
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		min-height: 540px;
+		background-image: url(#{$image_path}bg_main.jpg);
+	}
+	&:before, &:after {
+		position: absolute;
+		top: 4px;
+		display: block;
+		overflow: hidden;
+		max-width: 100%;
+	}
+	&:before {
+		left: 0;
+		content: url(#{$image_path}sp/image_light-left.png);
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			content: url(#{$image_path}image_light-left.png);
+		}
+	}
+	&:after {
+		right: 0;
+		content: url(#{$image_path}sp/image_light-right.png);
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			content: url(#{$image_path}image_light-right.png);
+		}
+	}
+	@include element(logo) {
+		position: relative;
+		z-index: 10;
+		display: block;
+		width: 72.1875%;
+		height: auto;
+		padding-top: 30.625vw;
+		margin: auto;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			width: auto;
+			padding-top: 180px;
+		}
+	}
+}
