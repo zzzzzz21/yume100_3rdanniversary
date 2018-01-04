@@ -1,0 +1,46 @@
+@charset "utf-8";
+// ===================================================================
+//  File:	components/_font.scss
+//  Date:	2017-12-31(UTC+9)
+//  Note:	
+// ===================================================================
+@mixin title-font {
+	@include fontsize(22);
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		@include fontsize(30);
+	}
+}
+@mixin title-font-midium {
+	@include fontsize(18);
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		@include fontsize(18);
+	}
+}
+@mixin title-font-small {
+	@include fontsize(16);
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		@include fontsize(16);
+	}
+}
+@mixin body-font {
+	@include fontsize(16);
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		@include fontsize(20);
+	}
+}
+@mixin body-font-midium {
+	@include fontsize(14);
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		@include fontsize(14);
+	}
+}

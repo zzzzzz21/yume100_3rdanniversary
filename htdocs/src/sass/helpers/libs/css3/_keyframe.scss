@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+// -------------------------------------------------------------------
+//  libs/compass/_keyframescss
+//  Date: 2014-05-01(+09:00)
+//  Authour: ad
+// -------------------------------------------------------------------
+@mixin keyframes($name) {
+  @-moz-keyframes #{$name} {
+    @content
+  }
+  @-webkit-keyframes #{$name} {
+    @content
+  }
+  @keyframes #{$name} {
+    @content
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "hakarai.co.jp",
+  "description": "hakarai inc.",
+  "main": "Gruntfile.js",
+  "authors": [
+    "shimizu@hakarai"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "modernizr": "2",
+    "selectivizr": "*",
+    "jquery": "*",
+    "matchHeight": "*",
+    "slick-carousel": "*"
+  },
+  "exportsOverride": {
+    "modernizr": {
+      "share" : "modernizr.js"
+    },
+    "selectivizr": {
+      "share" : "selectivizr.js"
+    },
+    "jquery": {
+      "js": "**/jquery.min.js"
+    },
+    "matchHeight": {
+      "js": "**/jquery.matchHeight-min.js"
+    },
+    "slick-carousel": {
+      "js": "**/slick.min.js",
+      "scss": "**/slick.scss"
+    }
+  }
+}

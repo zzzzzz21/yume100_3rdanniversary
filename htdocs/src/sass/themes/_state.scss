@@ -1,0 +1,94 @@
+@charset "UTF-8";
+// ===================================================================
+//	File:	themes/_state.scss
+//	Date:	2017-10-18(+09:00)
+//	Note:	
+// ===================================================================
+// JS
+// -------------------------------------------------------------------
+.is-hide {
+  display: none !important;
+}
+
+.is-show {
+  display: block !important;
+}
+
+.is-static {
+  position: static !important;
+}
+
+.is-fixed {
+  position: fixed !important;
+}
+
+.is-absolute {
+  position: absolute !important;
+}
+
+.is-visible {
+  visibility: visible !important;
+}
+
+.is-hidden {
+  visibility: hidden !important;
+}
+
+.is-overflow-hidden {
+  overflow: hidden !important;
+}
+
+
+// media
+// -------------------------------------------------------------------
+.is-sp {
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		display: none;
+	}
+	//	[media queries SP]
+	// ----------------------------------------
+	@include media(sp) {
+		display: block!important;
+	}
+}
+.is-pc {
+	display: none;
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		display: block;
+	}
+}
+
+
+// modifier
+// -------------------------------------------------------------------
+.is--notice {
+	@include fontsize(12);
+	color: $base_notice_color;
+}
+
+.notice-text {
+	@include fontsize(13);
+}
+.is--tel {
+	position: relative;
+	display: inline-block;
+	font-family: $base_font_family_noto;
+	@include fontsize(24);
+	color: $base_text_color;
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		@include fontsize(48);
+	}
+	&:before {
+		position: relative;
+		display: inline-block;
+		padding-right: .4em;
+		content: url(#{$image_path}icon_tel.png);
+		vertical-align: middle;
+	}
+}

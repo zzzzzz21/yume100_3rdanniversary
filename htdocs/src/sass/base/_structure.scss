@@ -1,0 +1,67 @@
+@charset "UTF-8";
+// ===================================================================
+//	File:	base/_structure.scss
+//	Date:	2015-05-02(+09:00)
+//	Note:	
+// ===================================================================
+html {
+	font-size: 62.5%;	// fontsize 指定は1rem=1px
+	height: 100%;
+	background: $base_bg_color;
+}
+
+body {
+	@include fontsize($base_font_size);
+	background: $base_bg_color;
+	color: $base_text_color;
+	font-family: $base_font_family;
+	line-height: $base_line_height;
+}
+html, body {
+	height: 100%;
+}
+
+body {
+	width: 100%;
+	position: relative;
+	min-height: 100%;
+	@include smooth;
+	//		[media queries SP]
+	// ----------------------------------------
+	@include media(sp) {
+		&.is-open {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+.page {
+	min-height: 100%;
+	position: relative;
+	box-sizing: border-box;
+}
+.contents {
+	//padding-bottom: $base_padding*12;
+}
+
+.alignR {
+	@include alignR;
+}
+button {
+	cursor: pointer;
+	/* when tapping or clicking the button */
+	outline: none;
+	border: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	//	[media queries SP]
+	// ----------------------------------------
+	@include media(sp) {
+		width: 100%;
+	}
+}

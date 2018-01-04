@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+// -------------------------------------------------------------------
+//  libs/compass/_button-anim-base.scss
+//  Date: 2014-05-01(+09:00)
+//  Authour: ad
+//  @include btnAimBaseSetting(0.5s, $ease-out-cubic);
+// -------------------------------------------------------------------
+
+@mixin btnAimBase($time, $easing) {
+  @include transition(all $time $easing);
+  position: relative;
+  z-index: 2;
+  display: block;
+}
+
+@mixin btnAimBaseSetting($time, $easing) {
+  @include transition(all $time $easing);
+  //	position: absolute;
+  //	top: 0;
+  display: block;
+  width: 100%;
+  content: '';
+}
+
+@mixin baseButtonAnim {
+  @include btnAimBase(0.5s, $ease-out-cubic);
+  &:before, &:after {
+    @include btnAimBaseSetting(0.5s, $ease-out-cubic);
+  }
+}

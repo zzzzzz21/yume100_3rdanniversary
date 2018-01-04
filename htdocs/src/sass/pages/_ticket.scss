@@ -1,0 +1,71 @@
+@charset "utf-8";
+// ===================================================================
+//  File:	pages/_ticket.scss
+//  Date:	2017-12-31(UTC+9)
+//  Note:	
+// ===================================================================
+.block-ticket {
+	.block__body {
+		background-image: url(../images/sp/bg_ticket-top.png), url(../images/sp/bg_ticket-middle.png), url(../images/sp/bg_ticket-bottom.png);
+		background-repeat: no-repeat;
+		background-position: left top, right 50%, left bottom;
+		background-size: 50%;
+		background-attachment: fixed;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			background-image: url(../images/bg_ticket-top.png), url(../images/bg_ticket-middle.png), url(../images/bg_ticket-bottom.png);
+			background-position: left 4% top, right 4% 50%, left 4% bottom;
+			background-size: auto;
+		}
+		text-align: center;
+		color: $base_corporate_color;
+	}
+}
+.ticket-info {
+	box-sizing: border-box;
+	padding: 1.6em 0;
+	border: 3px solid $base_corporate_color;
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		max-width: $base_content_width;
+		width: 100%;
+	}
+	//	.ticket-info__price
+	// ----------------------------------------
+	@include element(price) {
+		@include title-font;
+		font-weight: normal;
+	}
+	//	.ticket-info__body
+	// ----------------------------------------
+	@include element(body) {
+		@include body-font-midium;
+	}
+	& + .google-map {
+		margin-top: $base_padding*5.6;
+	}
+}
+.sales-info {
+	//	.sales-info__title
+	// ----------------------------------------
+	@include element(title) {
+		box-sizing: border-box;
+		display: inline-block;
+		min-width: 12em;
+		padding: .6em 2em;
+		background: #84909f;
+		@include fontsize(20);
+		color: $base_white_color;
+	}
+	//	.sales-info__body
+	// ----------------------------------------
+	@include element(body) {
+		margin-top: $base_padding*3;
+		@include body-font;
+		.btn-detail {
+			margin-top: $base_padding*4;
+		}
+	}
+}

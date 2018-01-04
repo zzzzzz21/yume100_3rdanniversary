@@ -1,0 +1,109 @@
+@charset "UTF-8";
+// ===================================================================
+//	File:	helpers/_variable.scss
+//	Date:	2017-12-30(+09:00)
+//	Note:	
+// ===================================================================
+// -------------------------------------------------------------------
+// Color
+// -------------------------------------------------------------------
+// -------------------------------------------------
+//		Color palette
+// -------------------------------------------------
+$base_corporate_color:	#4e647c;
+$base_accent_color: #d1c0a5;
+$base_white_color:		#fff;
+
+
+// -------------------------------------------------
+//		Base
+// -------------------------------------------------
+$base_text_color:		#000;
+$base_text2_color:	#4b2e0d;
+$base_notice_color:	#f00;
+$base_bg_color:		#fff;// for BG
+$base_border_color:	#ccc;// for BORDER
+$base_footer_color:	$base_corporate_color;
+$base_button_color:	#e8e1d7;
+
+// -------------------------------------------------
+//		Theme
+// -------------------------------------------------
+$base_title_color:	$base_corporate_color;
+
+// table width
+$base_table_width:	100%;
+
+
+// -------------------------------------------------
+//		Link
+// -------------------------------------------------
+$base_link_color:		#d2af7d;
+$base_visited_color:	$base_link_color;
+$base_hover_color:		darken($base_link_color, 20%); // ↑のhover
+$base_active_color:		$base_link_color;
+$base_btn_color:		$base_button_color;
+$base_btn_color_hover:	$base_button_color;
+$base_menu_color:		$base_corporate_color;
+$base_menu_overlay:		rgba($base_menu_color, .95);
+
+
+// -------------------------------------------------------------------
+// Base Overlay Depth
+// -------------------------------------------------------------------
+$base_depth:	1000;
+$base_radius:	4px;
+
+
+// -------------------------------------------------------------------
+// Image Path
+// -------------------------------------------------------------------
+$image_path:	"../images/";
+
+
+// -------------------------------------------------------------------
+// Size
+// -------------------------------------------------------------------
+$site_width:		1000px;
+$design_width:	1024;
+$base_content_width:	960px;
+$base_table_width: 100%;
+$design_height:	768;
+
+
+// -------------------------------------------------------------------
+// Font Setting
+// -------------------------------------------------------------------
+$base_font_size:		14;
+//$base_font_family:	"Open Sans", Meiryo,"Hiragino Kaku Gothic ProN", sans-serif;
+$base_font_family:	helvetica, arial, 'hiragino kaku gothic pro', meiryo, 'ms pgothic', sans-serif;
+$base_font_family_mincho:	"Times New Roman", "游明朝", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "HG明朝E", "メイリオ", Meiryo, serif;
+$base_font_family_noto:	"Noto Serif";
+$base_font_family_helvetica: "HelveticaNeue-Thin", "Helvetica Neue Thin", "Helvetica Neue", ".HiraKakuInterface-W1";
+
+$base_line_height:	1.6;
+$sp_base_font_size:	16;
+$sp_base_line_height:	1.8;
+
+
+// -------------------------------------------------------------------
+// Padding
+// -------------------------------------------------------------------
+$base_padding: 10px;
+
+
+// -------------------------------------------------------------------
+// Break Point
+// -------------------------------------------------------------------
+$break_point_pc_max:			2560px;
+$break_point_pc_min:			$site_width;
+$break_point_tablet_max:		$site_width - 1px;
+$break_point_tablet_min:		768px;
+$break_point_mobile_max:	767px;
+$break_point_mobile_min:	320px;
+
+
+// -------------------------------------------------------------------
+// Animate.scss
+// -------------------------------------------------------------------
+$IS_BASE_ANIMATION: true;

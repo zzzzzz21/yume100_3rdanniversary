@@ -1,0 +1,40 @@
+@charset "UTF-8";
+//$site_width:		1000px;
+//$design_width:	1024;
+//$base_content_width:	800px;
+//$base_table_width: 810px;
+//$design_height:	768;
+//$break_point_pc_max:			2560px;
+//$break_point_pc_min:			1000px;
+//$break_point_tablet_max:		999px;
+//$break_point_tablet_min:		768px;
+//$break_point_mobile_max:	767px;
+//$break_point_mobile_min:	320px;
+// -------------------------------------------------------------------
+//  mediaquery.scss
+//  Date: 2016-05-02(+09:00)
+// -------------------------------------------------------------------
+
+@mixin media($mediaSize) {
+	@if $mediaSize == pc {	// PC用
+		@media screen and (min-width: $break_point_pc_min) {
+			@content;
+		}
+	} @else if $mediaSize == pc-tb {	// PC&タブレット用
+		@media screen and (min-width: $break_point_tablet_min) {
+			@content;
+		}
+	} @else if $mediaSize == tb {	// タブレット用
+		@media screen and (min-width: $break_point_tablet_min) and (max-width: $break_point_tablet_max) {
+			@content;
+		}
+	} @else if $mediaSize == sp {	// SP用
+		@media screen and (max-width: $break_point_mobile_max) {
+			@content;
+		}
+	} @else if $mediaSize == landscape {
+		@media only screen and (orientation: landscape) {
+			@content;
+		}
+	}
+}

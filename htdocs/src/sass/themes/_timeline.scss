@@ -1,0 +1,31 @@
+@charset "UTF-8";
+// ===================================================================
+//	File:	themes/_timeline.scss
+//	Date:	2017-12-31(+09:00)
+//	Note:	
+// ===================================================================
+.js-loaded {
+	.mainImage__bg {
+		animation: fadeIn 2s;
+	}
+	.siteTitle__logo {
+		animation: fadeIn 4s;
+	}
+	.mainImage {
+		img {
+			animation: fadeInUp 3s;
+		}
+		&:before, &:after {
+			animation: fadeIn 4s;
+		}
+	}
+}
+.mainImage {
+	&:before, &:after {
+		animation: glitter 3s infinite;
+		animation-delay: 4s;
+	}
+	&:after {
+		animation-delay: 2s;
+	}
+}

@@ -1,0 +1,70 @@
+@charset "utf-8";
+// ===================================================================
+//  File:	layout/_footer.scss
+//  Date:	2017-12-02(UTC+9)
+//  Note:	
+// ===================================================================
+// -------------------------------------------------------------------
+// 	.globalFooter
+// -------------------------------------------------------------------
+.globalFooter {
+	@include centering;
+	position: relative;
+	z-index: 30;
+	padding: 1em 0;
+	background: $base_footer_color;
+	// -------------------------------------------------
+	// 	.gotoTop
+	// -------------------------------------------------
+	.gotoTop {
+		position: fixed;
+		z-index: 10000;
+		bottom: $base_padding*.6;
+		right: 20px;
+		@include opacity(.6);
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			right: 25px;
+		}
+		a.btn-toTop {
+			@include btn-up;
+			width: $base_padding*2;
+			height: $base_padding*2;
+			&:after {
+				top: 6px;
+				border-color: $base_text_color;
+			}
+			&:hover, &:active {
+				@include opacity(1);
+				background: $base_footer_color;
+				border-color: $base_border_color;
+			}
+		}
+	}
+	// -------------------------------------------------
+	// 	.footer-banner
+	// -------------------------------------------------
+	.footer-banner {
+		box-sizing: border-box;
+		width: 100%;
+		margin: 2em auto;
+		padding: 0 $base_padding;
+		text-align: center;
+		//	[media queries tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			max-width: calc( #{$site_width} + 20px );
+		}
+
+	}
+	// -------------------------------------------------
+	// 	.copyright
+	// -------------------------------------------------
+	.copyright {
+		padding: 1em 0 0;
+		@include alignC;
+		color: $base_accent_color;
+		letter-spacing: .4em;
+	}
+}
