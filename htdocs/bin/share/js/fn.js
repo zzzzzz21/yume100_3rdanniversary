@@ -209,7 +209,7 @@ var $body = $('body'),
 	$page = $('.page');
 $(function(){
 	$page.hide();
-	$('a[href ^= "https://newstella.co.jp"]' + 'a[target != "_blank"]').click(function(){
+	$('a[href ^= "http://www.yume-100.com/3rdevent/"]' + 'a[target != "_blank"]').click(function(){
 		var url = $(this).attr('href');
 		$('#js-loader').fadeIn(600);
 		setTimeout(function(){ location.href = url; }, 800);

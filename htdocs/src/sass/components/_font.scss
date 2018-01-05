@@ -29,7 +29,7 @@
 	}
 }
 @mixin body-font {
-	@include fontsize(16);
+	@include fontsize(14);
 	//	[media queries PC-tablet]
 	// ----------------------------------------
 	@include media(pc-tb) {
@@ -38,6 +38,14 @@
 }
 @mixin body-font-midium {
 	@include fontsize(14);
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		@include fontsize(14);
+	}
+}
+@mixin body-font-small {
+	@include fontsize(13);
 	//	[media queries PC-tablet]
 	// ----------------------------------------
 	@include media(pc-tb) {

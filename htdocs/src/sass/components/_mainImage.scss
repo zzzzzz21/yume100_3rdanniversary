@@ -41,10 +41,12 @@
 		display: block;
 		overflow: hidden;
 		max-width: 100%;
+		animation: glitter infinite 3s;
 	}
 	&:before {
 		left: 0;
 		content: url(#{$image_path}sp/image_light-left.png);
+		animation-delay: 4s;
 		//	[media queries PC-tablet]
 		// ----------------------------------------
 		@include media(pc-tb) {

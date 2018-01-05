@@ -22,7 +22,7 @@
 	background-size: 200% 100%;
 	background-image: linear-gradient(to right, $base_corporate_color 50%, $base_accent_color 50%, $base_accent_color);
 	background-position: 100% 0;
-	@include fontsize(16);
+	@include fontsize(14);
 	text-align: center;
 	font-weight: bold;
 	color: $base_corporate_color;
