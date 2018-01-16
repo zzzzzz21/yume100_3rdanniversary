@@ -212,7 +212,7 @@ $(function(){
 	$('a[href ^= "http://www.yume-100.com/3rdevent/"]' + 'a[target != "_blank"]').click(function(){
 		var url = $(this).attr('href');
 		$('#js-loader').fadeIn(600);
-		setTimeout(function(){ location.href = url; }, 800);
+		setTimeout(function(){ location.href = url; }, 1200);
 		return false;
 	});
 });
@@ -223,7 +223,7 @@ $(window).load(function(){
 	$page.fadeIn();
 	setTimeout(function(){
 		$body.removeClass('js-loaded');
-	}, 3000);
+	}, 12000);
 	return false;
 });
 

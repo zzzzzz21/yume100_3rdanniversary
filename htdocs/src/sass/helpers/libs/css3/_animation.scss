@@ -424,7 +424,7 @@
 
 	@include keyframes(fadeInDown) {
 		0% {
-			@include transform(translate3d(0, 100%, 0));
+			@include transform(translate3d(0, -100%, 0));
 			@include fadeIn(0);
 		}
 		100% {

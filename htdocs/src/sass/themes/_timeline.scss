@@ -4,22 +4,26 @@
 //	Date:	2017-12-31(+09:00)
 //	Note:	
 // ===================================================================
-.js-loaded {
-	.mainImage__bg {
-		animation: fadeIn 2s;
+
+.mainImage__bg {
+	animation: fadeIn 2s;
+}
+.siteTitle__logo {
+	animation: fadeIn 4s;
+}
+.mainImage {
+	.mainImage__characters {
+		animation: fadeInUp 2s;
 	}
-	.siteTitle__logo {
+	.mainImage__logo {
+		animation: fadeInDown 6s;
+	}
+	&:before, &:after {
 		animation: fadeIn 4s;
 	}
-	.mainImage {
-		img {
-			animation: fadeInUp 3s;
-		}
-		&:before, &:after {
-			animation: fadeIn 4s;
-		}
-	}
 }
+
+
 .mainImage {
 	&:before, &:after {
 		animation: glitter 3s infinite;

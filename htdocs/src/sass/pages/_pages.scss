@@ -15,11 +15,11 @@
 	//	.block__body
 	// ----------------------------------------
 	@include element(body) {
-		padding: 0 0 $base_padding*8;
+		padding: $base_padding*8 0;
 		//	[media queries PC-tablet]
 		// ----------------------------------------
 		@include media(pc-tb) {
-			padding: 0 0 $base_padding*9;
+			padding: $base_padding*9 0;
 		}
 	}
 	p + p {

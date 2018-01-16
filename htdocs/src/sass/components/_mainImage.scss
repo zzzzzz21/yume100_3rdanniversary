@@ -4,17 +4,20 @@
 //  Date:	2017-12-31(UTC+9)
 //  Note:	
 // ===================================================================
+$mainImage_height-pc: 698px;
+$mainImage_height-sp: 156.25vw;
+
 // -------------------------------------------------------------------
 // 	.mainImage
 // -------------------------------------------------------------------
 .mainImage {
 	position: relative;
-	min-height: 101.5625vw;
+	min-height: $mainImage_height-sp;
 	overflow: hidden;
 	//	[media queries PC-tablet]
 	// ----------------------------------------
 	@include media(pc-tb) {
-		min-height: 540px;
+		min-height: $mainImage_height-pc;
 	}
 	@include element(bg) {
 		position: absolute;
@@ -23,21 +26,41 @@
 		right: 0;
 		bottom: 0;
 		left: 0;
-		min-height: 101.5625vw;
+		min-height: $mainImage_height-sp;
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-image: url(#{$image_path}sp/bg_main.jpg);
 		//	[media queries PC-tablet]
 		// ----------------------------------------
 		@include media(pc-tb) {
-			min-height: 540px;
+			min-height: $mainImage_height-pc;
 			background-image: url(#{$image_path}bg_main.jpg);
+		}
+		@include modifier(flakes) {
+			display: none;
+			//	[media queries PC-tablet]
+			// ----------------------------------------
+			@include media(pc-tb) {
+				display: block;
+				position: absolute;
+				z-index: 11;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				min-height: $mainImage_height-sp;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-image: url(#{$image_path}bg_flakes.png);
+				opacity: .6;
+				min-height: $mainImage_height-pc;
+			}
 		}
 	}
 	&:before, &:after {
 		position: absolute;
 		z-index: 3;
-		top: 4px;
+		top: 3px;
 		display: block;
 		overflow: hidden;
 		max-width: 100%;
@@ -65,17 +88,30 @@
 	
 	@include element(logo) {
 		position: relative;
-		z-index: 10;
+		z-index: 16;
 		display: block;
 		width: 72.1875%;
 		height: auto;
-		padding-top: 30.625vw;
+		padding-top: 42.1875vw;
 		margin: auto;
 		//	[media queries PC-tablet]
 		// ----------------------------------------
 		@include media(pc-tb) {
 			width: auto;
-			padding-top: 180px;
+			padding-top: 128px;
+		}
+	}
+	@include element(characters) {
+		position: relative;
+		z-index: 10;
+		display: block;
+		padding-top: 15vw;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			width: auto;
+			height: auto;
+			padding-top: 32px;
 		}
 	}
 }
