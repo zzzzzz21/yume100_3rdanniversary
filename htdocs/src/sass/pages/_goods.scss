@@ -1,0 +1,254 @@
+@charset "utf-8";
+// ===================================================================
+//  File:	pages/_goods.scss
+//  Date:	2018-03-12(UTC+9)
+//  Note:	
+// ===================================================================
+.xGoods {
+	.contents {
+		padding: 30px 0;
+		background: url(#{$image_path}sp/bg_news.jpg) 0 0 no-repeat;
+		background-attachment: fixed;
+		background-size: 200% auto;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			padding: 80px 0 88px;
+			background-image: url(#{$image_path}bg_news.jpg);
+			background-size: cover;
+		}
+	}
+}
+
+
+//	.goods-article
+// ----------------------------------------
+.goods-article {
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		max-width: 860px;
+		margin: auto;
+	}
+	//	.goods-article__head
+	// ----------------------------------------
+	@include element(head) {
+		position: relative;
+		width: 30.625vw;
+		height: 9.375vw;
+		margin: 0 auto 4.6875vw;
+		background-position: 0 0;
+		background-repeat: no-repeat;
+		background: url(#{$image_path}sp/title_goods.png) 0 0 no-repeat;
+		background-size: cover;
+		@include text-indent;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			width: 264px;
+			height: 80px;
+			margin: 0 auto 30px;
+			background-image: url(#{$image_path}title_goods.png);
+		}
+	}
+	//	.goods-article__main
+	// ----------------------------------------
+	@include element(main) {
+		//padding: 16px 10px;
+		padding: 0 0 32px;
+		background: url(#{$image_path}bg_mainImage.png) 0 0 repeat;
+		border-top: 4px solid $base_border_color;
+		border-bottom: 4px solid $base_border_color;
+		box-shadow: 2px 2px 6px rgba(#000, .3), -2px -2px 6px rgba(#000, .3);
+		overflow: hidden;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			//padding: 24px 150px 32px;
+			padding: 0 0 56px;
+		}
+		//	.goods-article__main__title
+		// ----------------------------------------
+		@include element(title) {
+			position: relative;
+			padding: 2em 0 1.2em;
+			background-image: url(#{$image_path}bg_title_goods.jpg);
+			background-position: 0 0;
+			background-repeat: no-repeat;
+			background-size: cover;
+			//	[media queries PC-tablet]
+			// ----------------------------------------
+			@include media(pc-tb) {
+				margin: 0 0 32px;
+				padding: 3.2em 0 1.8em;
+				@include fontsize(24);
+			}
+			&:after {
+				position: relative;
+				z-index: 4;
+				display: block;
+				width: 52.0625vw;
+				height: 18.375vw;
+				content: '';
+				margin: -14.25vw auto 0;
+				background: url(#{$image_path}image_title_goods.png) 0 0 no-repeat;
+				background-size: cover;
+				//	[media queries PC-tablet]
+				// ----------------------------------------
+				@include media(pc-tb) {
+					width: 320px;
+					height: 114px;
+					margin-top: -90px;
+				}
+			}
+			.title__body {
+				@include text-indent;
+				z-index: 10;
+				@at-root {
+					.is--anniversary & {
+						width: 50.75vw;
+						height: 11.1015625vw;
+						margin: auto;
+						background: url(#{$image_path}title_goods_anniversary.png) 0 0 no-repeat;
+						background-size: cover;
+						//	[media queries PC-tablet]
+						// ----------------------------------------
+						@include media(pc-tb) {
+							width: 312px;
+							height: 70px;
+						}				
+					}
+					.is--others & {
+						width: 34.125vw;
+						height: 10.0625vw;
+						margin: auto;
+						background: url(#{$image_path}title_goods_others.png) 0 0 no-repeat;
+						background-size: cover;
+						//	[media queries PC-tablet]
+						// ----------------------------------------
+						@include media(pc-tb) {
+							width: 210px;
+							height: 62px;
+						}				
+					}
+					.is--reserve & {
+						width: 35.875vw;
+						height: 11.375vw;
+						margin: auto;
+						background: url(#{$image_path}title_goods_reserve.png) 0 0 no-repeat;
+						background-size: cover;
+						//	[media queries PC-tablet]
+						// ----------------------------------------
+						@include media(pc-tb) {
+							width: 222px;
+							height: 70px;
+						}				
+					}
+					.is--cake & {
+						width: 45vw;
+						height: 6.875vw;
+						margin: auto;
+						background: url(#{$image_path}title_goods_cake.png) 0 0 no-repeat;
+						background-size: cover;
+						//	[media queries PC-tablet]
+						// ----------------------------------------
+						@include media(pc-tb) {
+							width: 386px;
+							height: 58px;
+						}				
+					}
+				}
+			}
+		}
+		//	.goods-article__main__body
+		// ----------------------------------------
+		@include element(body) {
+			padding: 24px 10px;
+			//	[media queries PC-tablet]
+			// ----------------------------------------
+			@include media(pc-tb) {
+				padding: 14px 28px 48px;
+			}
+		}
+	}
+	//	.goods-article__foot
+	// ----------------------------------------
+	@include element(foot) {
+		@extend .goods-article__main__body;
+		//	.goods-article__foot--link
+		// ----------------------------------------
+		@include modifier(link) {
+			margin: auto;
+			text-align: center;
+			& + .goods-article__information {
+				margin-top: 2em;
+			}
+			//	.goods-article__foot--link__title
+			// ----------------------------------------
+			@include element(title) {
+				margin-bottom: 1.6em;
+				@include fontsize(14);
+			}
+			//	.goods-article__foot--link__button
+			// ----------------------------------------
+			@include element(button) {
+				display: inline-block;
+				padding: 1.6em 2.4em;
+				border: 1px solid #31004a;
+				background: #efede6;
+				border-radius: 6px;
+				box-shadow: 2px 2px 6px rgba(51, 51, 51, 0.3), -2px 2px 6px rgba(51, 51, 51, 0.3);
+				color: #333;
+				transition: all ease .3s;
+				&:link,
+				&:visited {
+					color: #333;
+				}
+				&:hover {
+					text-decoration: none;
+					background: #333;
+					color: #efede6;
+				}
+			}
+		}
+	}
+	p + p,
+	* + p,
+	p + * {
+		margin-top: 1.2em;
+	}
+}
+
+
+//	.goods-list
+// ----------------------------------------
+.goods-list {
+	@include clearfix;
+	//	.goods-list__item
+	// ----------------------------------------
+	@include element(item) {
+		float: left;
+		//	[media queries SP]
+		// ----------------------------------------
+		@include media(sp) {
+			width: 48%;
+			margin: 0 2% 2% 0;
+			&:nth-child(2n) {
+				margin-right: 0;
+			}
+		}
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			margin-right: 20px;
+			margin-bottom: 20px;
+			&:nth-child(2n) {
+				margin-right: 0;
+			}
+		}
+	}
+}
+//	[media queries PC-tablet]
+// ----------------------------------------
+@include media(pc-tb) {
+}

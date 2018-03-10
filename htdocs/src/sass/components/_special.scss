@@ -1,0 +1,150 @@
+@charset "utf-8";
+// ===================================================================
+//  File:	components/_special.scss
+//  Date:	2018-02-06(UTC+9)
+//  Note:	
+// ===================================================================
+// -------------------------------------------------------------------
+// .block-special
+// -------------------------------------------------------------------
+.block-special {
+	.block__body {
+		padding: 30px 0 20px;
+		background: url(#{$image_path}sp/bg_sky.jpg) 0 0 no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			background: url(#{$image_path}bg_sky.jpg) 0 0 no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+		}
+	}
+}
+
+
+// -------------------------------------------------------------------
+// .special-container
+// -------------------------------------------------------------------
+.special-container {
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0 auto;
+	@include clearfix;
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		max-width: calc( #{$site_width} + 20px );
+	}
+	//	[media queries tablet]
+	// ----------------------------------------
+	@include media(tb) {
+	}
+	//	[media queries SP]
+	// ----------------------------------------
+	@include media(sp) {
+	}
+}
+
+
+.special-article {
+	position: relative;
+	float: left;
+	box-sizing: border-box;
+	width: 50%;
+	padding: 10px;
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		width: 33.3333%;
+		padding: 10px;
+	}
+	//	.special-article--large
+	// ----------------------------------------
+	@include modifier(large) {
+		width: 100%;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			width: 66.6666%;
+		}
+	}
+	&.is-new:before {
+		position: absolute;
+		top: 16px;
+		left: 2px;
+		display: block;
+		content: '';
+		width: 21.25vw;
+		height: 5.9375vw;
+		background: url(#{$image_path}sp/icon_update.png) 0 0 no-repeat;
+		background-size: contain;
+		z-index: 10;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			width: 136px;
+			height: 38px;
+			top: 16px;
+			left: -2px;
+		}
+	}
+	a {
+		display: block;
+		box-shadow: 2px 2px 6px rgba(#000, .3), -2px 2px 6px rgba(#000, .3);
+		position: relative;
+		overflow: hidden;
+		color: $base_text_color;
+		&:hover {
+			opacity: .9;
+		}
+	}
+	//	.special-article__body
+	// ----------------------------------------
+	@include element(body) {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: .2em;
+		background: rgba($base_white_color, .8);
+		text-align: center;
+		line-height: 1.2;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			padding: .8em 1em;
+		}
+	}
+	//	.special-article__title
+	// ----------------------------------------
+	@include element(title) {
+		display: block;
+		margin: 0 0 .4em;
+		padding: 0 0 .1em;
+		border-bottom: 1px solid $base_text_color;
+		@include fontsize(12);
+		font-weight: bold;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			display: inline-block;
+			@include fontsize(14);
+		}
+	}
+	//	.special-article__description
+	// ----------------------------------------
+	@include element(description) {
+		@include fontsize(12);
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			@include fontsize(12);
+		}
+	}
+	//	.special-article__image
+	// ----------------------------------------
+	@include element(image) {
+	}
+}

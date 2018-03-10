@@ -1,117 +1,224 @@
 @charset "utf-8";
 // ===================================================================
 //  File:	components/_mainImage.scss
-//  Date:	2017-12-31(UTC+9)
+//  Date:	2018-02-01(UTC+9)
 //  Note:	
 // ===================================================================
-$mainImage_height-pc: 698px;
-$mainImage_height-sp: 156.25vw;
+$mainImage_height-pc: 585px;
+$mainImage_height-sp: 154.375vw;
 
 // -------------------------------------------------------------------
 // 	.mainImage
 // -------------------------------------------------------------------
 .mainImage {
-	position: relative;
 	min-height: $mainImage_height-sp;
+	background: url(#{$image_path}bg_mainImage.png) 0 0 repeat;
+	background-attachment: fixed;
 	overflow: hidden;
 	//	[media queries PC-tablet]
 	// ----------------------------------------
 	@include media(pc-tb) {
 		min-height: $mainImage_height-pc;
+		padding: 88px 0 40px;
 	}
-	@include element(bg) {
-		position: absolute;
-		z-index: 2;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		min-height: $mainImage_height-sp;
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-image: url(#{$image_path}sp/bg_main.jpg);
+	//	.mainImage__inner
+	// ----------------------------------------
+	@include element(inner) {
+		position: relative;
 		//	[media queries PC-tablet]
 		// ----------------------------------------
 		@include media(pc-tb) {
-			min-height: $mainImage_height-pc;
-			background-image: url(#{$image_path}bg_main.jpg);
+			max-width: 1040px;
+			width: 100%;
+			margin: 0 auto;
+			img {
+				width: 100%;
+				height: auto;
+			}
 		}
-		@include modifier(flakes) {
-			display: none;
+		&:before, &:after {
+			position: relative;
+			z-index: 3;
+			display: block;
+			max-width: 100%;
+			width: 93.75%;
 			//	[media queries PC-tablet]
 			// ----------------------------------------
 			@include media(pc-tb) {
-				display: block;
 				position: absolute;
-				z-index: 11;
+				left: -80px;
+				width: 1200px;
+				margin: 0;
+			}
+		}
+		&:before {
+			//	[media queries SP]
+			// ----------------------------------------
+			@include media(sp) {
+				position: absolute;
 				top: 0;
-				right: 0;
-				bottom: 0;
 				left: 0;
-				min-height: $mainImage_height-sp;
+				display: block;
+				width: 100%;
+				height: auto;
+				max-height: 100%;
+				margin-right: auto;
+				margin-left: auto;
+				content: url(../../images/bg_main_sp.gif);
+			}
+			//	[media queries PC-tablet]
+			// ----------------------------------------
+			@include media(pc-tb) {
+				content: url(#{$image_path}bg_frame_before.png);
+				height: 291px;
+				top: -70px;
+			}
+		}
+		&:after {
+			//	[media queries SP]
+			// ----------------------------------------
+			@include media(sp) {
+				display: block;
+				width: 91.71875vw;
+				height: 14.0625vw;
+				content: '';
+				margin: 20px auto 0;
+				background: url(#{$image_path}sp/bg_frame_after.png);
 				background-size: cover;
-				background-repeat: no-repeat;
-				background-image: url(#{$image_path}bg_flakes.png);
-				opacity: .6;
-				min-height: $mainImage_height-pc;
+			}
+			//	[media queries PC-tablet]
+			// ----------------------------------------
+			@include media(pc-tb) {
+				content: url(#{$image_path}bg_frame_after.png);
+				height: 262px;
+				bottom: -44px;
 			}
 		}
 	}
-	&:before, &:after {
-		position: absolute;
-		z-index: 3;
-		top: 3px;
-		display: block;
-		overflow: hidden;
-		max-width: 100%;
-		animation: glitter infinite 3s;
-	}
-	&:before {
-		left: 0;
-		content: url(#{$image_path}sp/image_light-left.png);
-		animation-delay: 4s;
+	//	.mainImage__movie
+	// ----------------------------------------
+	@include element(movie) {
+		width: 100%;
+		height: 100%;
+		max-width: 640px;
+		max-height: 990px;
+		margin-right: auto;
+		margin-left: auto;
 		//	[media queries PC-tablet]
 		// ----------------------------------------
 		@include media(pc-tb) {
-			content: url(#{$image_path}image_light-left.png);
 		}
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			max-width: 1040px;
+			max-height: 584px;
+		}
+		//	.mainImage__movie__content
+		// ----------------------------------------
+		@include element(content) {
+			//	[media queries PC-tablet]
+			// ----------------------------------------
+			@include media(pc-tb) {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+}
+
+
+// -------------------------------------------------------------------
+// 	.mainNews
+// -------------------------------------------------------------------
+.mainNews {
+	position: relative;
+	z-index: 10;
+	box-sizing: border-box;
+	width: calc(100% - 40px);
+	margin: 40px auto;
+	padding: 20px 20px 30px;
+	background: rgba(238, 238, 238, .5);
+	border-radius: 4px;
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		max-width: $site_width;
+		margin: 70px auto 0;
+		padding: 30px 0;
+	}
+	&:before,
+	&:after {
+		position: absolute;
+		display: block;
+		width: 6.875vw;
+		height: 6.875vw;
+		content: '';
+		background: url(#{$image_path}bg_mainNews.png) 0 0 no-repeat;
+		background-size: cover;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			width: 51px;
+			height: 54px;
+			content: url(#{$image_path}bg_mainNews.png);
+			background: none;
+		}
+	}	
+	&:before {
+		top: 10px;
+		left: 10px;
 	}
 	&:after {
-		right: 0;
-		content: url(#{$image_path}sp/image_light-right.png);
+		transform: rotateY(180deg);
+		top: 10px;
+		right: 10px;
+	}
+	//	.mainNews__inner
+	// ----------------------------------------
+	@include element(inner) {
 		//	[media queries PC-tablet]
 		// ----------------------------------------
 		@include media(pc-tb) {
-			content: url(#{$image_path}image_light-right.png);
+			width: 80%;
+			margin: 0 auto;
+			vertical-align: middle;
 		}
 	}
-	
-	@include element(logo) {
-		position: relative;
-		z-index: 16;
+	//	.mainNews__title
+	// ----------------------------------------
+	@include element(title) {
 		display: block;
-		width: 72.1875%;
-		height: auto;
-		padding-top: 42.1875vw;
-		margin: auto;
+		width: 138px;
+		height: 16px;
+		content: '';
+		margin: 0 auto 3.75vw;
+		background: url(#{$image_path}sp/title_mainNews.png);
+		background-size: cover;
+		text-indent: 100%;
+		white-space: nowrap;
+		overflow: hidden;
 		//	[media queries PC-tablet]
 		// ----------------------------------------
 		@include media(pc-tb) {
-			width: auto;
-			padding-top: 128px;
+			display: inline-block;
+			width: 138px;
+			height: 16px;
+			margin: 0 60px 0 0;
+			background: url(#{$image_path}title_mainNews.png);
+			background-size: contain;
+			vertical-align: middle;
 		}
 	}
-	@include element(characters) {
-		position: relative;
-		z-index: 10;
-		display: block;
-		padding-top: 15vw;
+	//	.news-list
+	// ----------------------------------------
+	.news-list {
 		//	[media queries PC-tablet]
 		// ----------------------------------------
 		@include media(pc-tb) {
-			width: auto;
-			height: auto;
-			padding-top: 32px;
+			display: inline-block;
+			width: 72%;
+			vertical-align: middle;
 		}
 	}
 }

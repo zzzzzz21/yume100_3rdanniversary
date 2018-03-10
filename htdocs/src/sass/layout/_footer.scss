@@ -11,8 +11,9 @@
 	@include centering;
 	position: relative;
 	z-index: 30;
-	padding: 1em 0;
+	padding: 30px 0;
 	background: $base_footer_color;
+	color: #d1dbe9;
 	// -------------------------------------------------
 	// 	.gotoTop
 	// -------------------------------------------------
@@ -38,33 +39,146 @@
 			&:hover, &:active {
 				@include opacity(1);
 				background: $base_footer_color;
-				border-color: $base_border_color;
+				border-color: #ccc;
 			}
 		}
 	}
-	// -------------------------------------------------
-	// 	.footer-banner
-	// -------------------------------------------------
-	.footer-banner {
-		box-sizing: border-box;
-		width: 100%;
-		margin: 2em auto;
-		padding: 0 $base_padding;
-		text-align: center;
-		//	[media queries tablet]
-		// ----------------------------------------
-		@include media(pc-tb) {
-			max-width: calc( #{$site_width} + 20px );
-		}
-
-	}
-	// -------------------------------------------------
 	// 	.copyright
 	// -------------------------------------------------
 	.copyright {
-		padding: 1em 0 0;
-		@include alignC;
-		color: $base_accent_color;
-		letter-spacing: .4em;
+		margin-top: 30px;
+		//	[media queries SP]
+		// ----------------------------------------
+		@include media(sp) {
+			padding: 0;
+		}
+		// 	.copyright__inner
+		// -------------------------------------------------
+		@include element(inner) {
+			box-sizing: border-box;
+			width: 100%;
+			margin: 0 auto;
+			padding: 30px $base_padding*2 10px;
+			border-top: 1px solid $base_white_color;
+			@include alignC;
+			color: $base_white_color;
+			@include clearfix;
+			//	[media queries tablet]
+			// ----------------------------------------
+			@include media(pc-tb) {
+				max-width: calc( #{$site_width} + 20px );
+				padding: 30px $base_padding 0;
+			}
+		}
 	}
 }
+
+
+// -------------------------------------------------------------------
+// 	.footer-contents
+// -------------------------------------------------------------------
+.footer-contents {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0 20px;
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		width: 560px;
+		margin: 0 auto;
+		padding: 0;
+	}
+	// 	.footer-contents__article
+	// -------------------------------------------------
+	@include element(article) {
+		@include clearfix;
+		position: relative;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			display: table;width: 100%;
+		}
+	}
+	// 	.footer-contents__title
+	// -------------------------------------------------
+	@include element(title) {
+		width: 48%;
+		height: auto;
+		margin-bottom: 2em;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			width: 215px;
+			display: table-cell;
+		}
+	}
+	// 	.footer-contents__body
+	// -------------------------------------------------
+	@include element(body) {
+		text-align: center;
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			display: table-cell;
+			padding-left: 40px;
+			text-align: left;
+			@include fontsize(12);
+		}
+		p {
+			position: static;
+			margin-top: 40px;
+			//	[media queries PC-tablet]
+			// ----------------------------------------
+			@include media(pc-tb) {
+				margin: 0;
+			}			
+		}
+	}
+}
+
+.app-links {
+	width: 48%;
+	text-align: center;
+	//	[media queries PC-tablet]
+	// ----------------------------------------
+	@include media(pc-tb) {
+		width: auto;
+		margin-top: -10px;
+	}
+	//	[media queries SP]
+	// ----------------------------------------
+	@include media(sp) {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	// 	.app-links__item
+	// -------------------------------------------------
+	@include element(item) {
+		display: block;
+		& + & {
+			margin-top: $base_padding;
+		}
+		//	[media queries PC-tablet]
+		// ----------------------------------------
+		@include media(pc-tb) {
+			width: 48%;
+			display: inline-block;
+			& + & {
+				margin: $base_padding*2 0 0 2%;
+			}
+		}
+	}
+}
+
+
+// -------------------------------------------------------------------
+// 	.footer-navi
+// -------------------------------------------------------------------
+.footer-navi {
+	display: block;
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+

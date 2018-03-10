@@ -65,13 +65,13 @@ module.exports = function(grunt) {
 			images: {
 				expand: true,
 				cwd: '<%= dir.bin %>/',
-				src: ['<%= dir.share %>/<%= dir.img  %>/**','<%= dir.img %>/**'],
+				src: ['<%= dir.share %>/<%= dir.img  %>/**','<%= dir.img %>/**','**/<%= dir.img %>/**'],
 				dest: '<%= dir.release %>/'
 			},
 			js: {
 				expand: true,
 				cwd: '<%= dir.bin %>/',
-				src: ['<%= dir.share %>/<%= dir.js %>/**'],
+				src: ['<%= dir.share %>/<%= dir.js %>/**','<%= dir.share %>/lib/**','<%= dir.share %>/favicons/**'],
 				dest: '<%= dir.release %>/'
 			}
 		},
@@ -131,6 +131,7 @@ module.exports = function(grunt) {
 				],
 			}
 		},
+
 		// prefix
 		autoprefixer: {
 			options: {
@@ -141,31 +142,6 @@ module.exports = function(grunt) {
 				flatten: true,
 				src: ['<%= dir.bin %>/<%= dir.share %>/<%= dir.css %>/*.css'],
 				dest: '<%= dir.bin %>/<%= dir.share %>/<%= dir.css %>/'
-			}
-		},
-
-		// browserSyncの設定
-		browserSync: {
-			dev: {
-				bsFiles: {
-					src : [
-						'<%= dir.bin %>/**/*.css',
-						'<%= dir.bin %>/**/**/*.css',
-						'<%= dir.bin %>/**/*.jpg',
-						'<%= dir.bin %>/**/*.png',
-						'<%= dir.bin %>/**/*.gif',
-						'<%= dir.bin %>/**/*.js',
-						'<%= dir.bin %>/**/**/**/*.html',
-						'<%= dir.bin %>/**/**/*.html',
-						'<%= dir.bin %>/**/*.html',
-						'<%= dir.bin %>/*.html'
-					]
-				},
-				options: {
-					watchTask: true,
-					server: './bin'
-					
-				}
 			}
 		},
 
@@ -226,6 +202,31 @@ module.exports = function(grunt) {
 				}
 			},
 		},
+		// browserSyncの設定
+		browserSync: {
+			dev: {
+				bsFiles: {
+					src : [
+						'<%= dir.bin %>/**/*.css',
+						'<%= dir.bin %>/**/**/*.css',
+						'<%= dir.bin %>/**/*.jpg',
+						'<%= dir.bin %>/**/*.png',
+						'<%= dir.bin %>/**/*.gif',
+						'<%= dir.bin %>/**/*.js',
+						'<%= dir.bin %>/**/**/**/*.html',
+						'<%= dir.bin %>/**/**/*.html',
+						'<%= dir.bin %>/**/*.html',
+						'<%= dir.bin %>/*.html'
+					]
+				},
+				options: {
+					watchTask: true,
+					server: './bin'
+
+				}
+			}
+		},
+
 		// CSSのプロパティを揃える
 		csscomb:{
 			options: {
@@ -260,7 +261,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('check', ['clean:deleteReleaseFolder', 'copy:html', 'copy:css', 'copy:images', 'copy:js', 'cmq', 'clean:deleteReleaseFile']);
  
 	// 納品用のファイルを作るためのgruntコマンド
-	grunt.registerTask('release', ['clean:deleteReleaseFolder', 'copy:images', 'copy:js', 'htmlmin', 'cssmin','cmq', 'uglify', 'clean:deleteReleaseFile']);
+	grunt.registerTask('release', ['clean:deleteReleaseFolder', 'copy:images', 'copy:js', 'cssmin','cmq', 'uglify', 'clean:deleteReleaseFile']);
  
 	grunt.registerTask('eatwarnings', function() {
 		grunt.warn = grunt.fail.warn = function(warning) {

@@ -76,7 +76,7 @@
 	display: block;
 	width: 100%;
 	padding: 1em;
-	border: 1px solid $base_border_color;
+	border: 1px solid #ccc;
 	border-radius: $base-radius;
 	@include fontsize(18);
 	text-align: center;

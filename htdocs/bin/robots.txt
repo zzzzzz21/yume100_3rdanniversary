@@ -1,3 +1,0 @@
-User-Agent:*
-Disallow:
-Sitemap:http://www.taisei-pro.com/shinkawasaki/sitemap.xml

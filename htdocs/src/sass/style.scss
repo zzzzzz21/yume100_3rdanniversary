@@ -1,7 +1,7 @@
 @charset "utf-8";
 // ===================================================================
 //  File:	/share/css/style.scss
-//  Date:	2017-12-31(UTC+9)
+//  Date:	2018-02-01(UTC+9)
 //  Note:	made by shimizu@hakarai
 // ===================================================================
 //	Reset
@@ -25,7 +25,8 @@
 @import "components/btn";
 @import "components/font";
 @import "components/mainImage";
-@import "components/google-map";
+@import "components/news-list";
+@import "components/special";
 
 //	Layout
 // -------------------------------------------------------------------
@@ -39,17 +40,14 @@
 //	Pages
 // -------------------------------------------------------------------
 @import "pages/pages";
-@import "pages/event";
-@import "pages/cast";
-@import "pages/ticket";
-@import "pages/attention";
-@import "pages/loader";
+@import "pages/news";
+@import "pages/special";
+@import "pages/goods";
 
 
 // Themes
 // -------------------------------------------------------------------
 @import "themes/state";
-@import "themes/timeline";
 
 
 // Vendors
@@ -58,7 +56,7 @@
 
 // animation
 // -------------------------------------------------------------------
-@import "helpers/libs/css3/animation";
+
 
 
 // ===================================================================

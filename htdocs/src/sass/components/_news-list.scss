@@ -1,0 +1,76 @@
+@charset "utf-8";
+// ===================================================================
+//  File:	components/_news.scss
+//  Date:	2018-02-01(UTC+9)
+//  Note:	
+// ===================================================================
+.news-list {
+	a {
+		display: block;
+		color: $base_text_color;
+		text-decoration: none;
+		&:visited {
+			color: $base_text_color;
+			text-decoration: none;
+		}
+		&:hover {
+			text-decoration: underline;
+		}
+		//	[media queries PC]
+		// ----------------------------------------
+		@include media(pc) {
+			@include clearfix;
+		}
+	}
+	//	.news-list__item
+	// ----------------------------------------
+	@include element(item) {
+		//	[media queries SP]
+		// ----------------------------------------
+		@include media(sp) {
+			position: relative;
+			padding-left: 32px;
+			&:before {
+				position: absolute;
+				display: block;
+				content: url(#{$image_path}marker_mainNews.png);
+				width: 16px;
+				height: 16px;
+				padding: 0 2em;
+				top: 24%;
+				left: -24px;
+			}
+		}
+		& + & {
+			margin-top: 1em;
+		}
+	}
+	//	.news-list__date
+	// ----------------------------------------
+	@include element(date) {
+		display: block;
+		//	[media queries PC]
+		// ----------------------------------------
+		@include media(pc) {
+			float: left;
+			&:after {
+				position: relative;
+				display: inline-block;
+				content: url(#{$image_path}marker_mainNews.png);
+				width: 16px;
+				height: 16px;
+				padding: 0 2em;
+			}
+		}
+	}
+	//	.news-list__title
+	// ----------------------------------------
+	@include element(title) {
+		display: block;
+		//	[media queries PC]
+		// ----------------------------------------
+		@include media(pc) {
+			overflow: hidden;
+		}
+	}
+}
