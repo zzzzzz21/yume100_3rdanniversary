@@ -3,3 +3,4 @@
 /htdocs/.sass-cache/*
 *.psd
 /npm-debug.log
+/htdocs/release/*
