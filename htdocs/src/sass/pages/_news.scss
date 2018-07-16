@@ -10,6 +10,11 @@
 		background: url(#{$image_path}sp/bg_news.jpg) 0 0 no-repeat;
 		background-attachment: fixed;
 		background-size: 200% auto;
+		//	[media queries SP]
+		// ----------------------------------------
+		@include media(sp) {
+			background-color: #00f;
+		}
 		//	[media queries PC-tablet]
 		// ----------------------------------------
 		@include media(pc-tb) {

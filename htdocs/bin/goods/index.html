@@ -75,7 +75,7 @@
 
 <!-- [css] -->
 <link rel="stylesheet" href="../share/css/style.css" media="all">
-<link rel="stylesheet" href="../share/lib/t-scroll/t-scroll.min.css" media="all">
+<link rel="stylesheet" href="../share/lib/colorbox/colorbox.css" media="all">
 <!-- /[css] -->
 
 </head>
@@ -153,9 +153,9 @@
 						<h3 class="goods-article__main__title"><span class="title__body">3周年イベント プリンスパレードグッズ</span></h3>
 						<div class="goods-article__main__body">
 							<ul class="goods-list">
-								<li class="goods-list__item"><img src="images/goods_A1_pc.png" alt="プリンスパレード2017トレーディングアクリルキーホルダー（全18種）" class="data-switch"></li>
-								<li class="goods-list__item"><img src="images/goods_A2_pc.png" alt="プリンスパレード2017ガイドブック" class="data-switch"></li>
-								<li class="goods-list__item--large"><img src="images/goods_B_pc.png" alt="プリンスパレード2017トレーディングアクリルキーホルダー（全18種）" class="data-switch"></li>
+								<li class="goods-list__item"><a href="images/dummy_A1.png" class="colorbox"><img src="images/goods_A1_pc.png" alt="プリンスパレード2017トレーディングアクリルキーホルダー（全18種）" class="data-switch"></a></li>
+								<li class="goods-list__item"><a href="images/dummy_A2.png" class="colorbox"><img src="images/goods_A2_pc.png" alt="プリンスパレード2017ガイドブック" class="data-switch"></a></li>
+								<li class="goods-list__item--large"><a href="images/dummy_B.png" class="colorbox"><img src="images/goods_B_pc.png" alt="プリンスパレード2017トレーディングアクリルキーホルダー（全18種）" class="data-switch"></a></li>
 							</ul>
 						</div>
 					</section>
@@ -163,8 +163,8 @@
 						<h3 class="goods-article__main__title"><span class="title__body">その他グッズ</span></h3>
 						<div class="goods-article__main__body">
 							<ul class="goods-list">
-								<li class="goods-list__item"><img src="images/goods_C1_pc.png" alt="夢100シリーズ～ Vol.1 宝石の国 ～" class="data-switch"></li>
-								<li class="goods-list__item"><img src="images/goods_C2_pc.png" alt="夢100シリーズ～ Vol.2 不思議の国1 ～" class="data-switch"></li>
+								<li class="goods-list__item"><a href="images/dummy_C1.png" class="colorbox"><img src="images/goods_C1_pc.png" alt="夢100シリーズ～ Vol.1 宝石の国 ～" class="data-switch"></a></li>
+								<li class="goods-list__item"><a href="images/dummy_C2.png" class="colorbox"><img src="images/goods_C2_pc.png" alt="夢100シリーズ～ Vol.2 不思議の国1 ～" class="data-switch"></a></li>
 							</ul>
 						</div>
 					</section>
@@ -205,7 +205,7 @@
 						<h3 class="goods-article__main__title"><span class="title__body">予約＆先行販売</span></h3>
 						<div class="goods-article__main__body">
 							<ul class="goods-list">
-								<li class="goods-list__item--large"><img src="images/goods_D_pc.png" alt="プリンスリングネックレス" class="data-switch"></li>
+								<li class="goods-list__item--large"><a href="images/dummy_D.png" class="colorbox"><img src="images/goods_D_pc.png" alt="プリンスリングネックレス" class="data-switch"></a></li>
 							</ul>
 						</div>
 					</section>
@@ -276,6 +276,14 @@
 <script src="../share/lib/js/libs.js"></script>
 <script src="../share/lib/colorbox/jquery.colorbox-min.js"></script>
 <script src="../share/js/fn.js"></script>
+<script>
+	$(function() {
+		$(".colorbox").colorbox({
+			maxWidth: "90%",
+			maxHeight: "90%"
+		});
+	});
+</script>
 </body>
 <!-- /[body] -->
 </html>

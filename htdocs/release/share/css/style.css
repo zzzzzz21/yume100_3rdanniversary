@@ -1760,6 +1760,11 @@ body:not(.siteIndex) .globalHeader, .globalHeader.is--fixed {
   background-attachment: fixed;
   background-size: 200% auto;
 }
+@media screen and (max-width: 767px) {
+  .xNews .contents {
+    background-color: #00f;
+  }
+}
 @media screen and (min-width: 768px) {
   .xNews .contents {
     padding: 80px 0 88px;
@@ -1881,6 +1886,11 @@ body:not(.siteIndex) .globalHeader, .globalHeader.is--fixed {
   background-attachment: fixed;
   background-size: 200% auto;
 }
+@media screen and (max-width: 767px) {
+  .xSpecial .contents {
+    background-color: #00f;
+  }
+}
 @media screen and (min-width: 768px) {
   .xSpecial .contents {
     padding: 80px 0 88px;
@@ -1979,9 +1989,14 @@ body:not(.siteIndex) .globalHeader, .globalHeader.is--fixed {
 
 .xGoods .contents {
   padding: 30px 0;
-  background: #00f url(../images/sp/bg_news.jpg) 0 0 no-repeat;
+  background: url(../images/sp/bg_news.jpg) 0 0 no-repeat;
   background-attachment: fixed;
   background-size: 200% auto;
+}
+@media screen and (max-width: 767px) {
+  .xGoods .contents {
+    background-color: #00f;
+  }
 }
 @media screen and (min-width: 768px) {
   .xGoods .contents {
